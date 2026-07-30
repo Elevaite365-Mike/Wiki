@@ -66,4 +66,4 @@ Sometimes required to override an event that is blocking the click.
 The maximum time the test will wait for the field to be visible before failing the test.
 
 !!! info "Which commands have these?"
-    Click position, click count and force apply to the click-style commands — [Click](mouse-keyboard.md#click), [Right Click](mouse-keyboard.md#right-click), [Select Options](entering-data.md#select-options), [Click (Computer Vision)](ai.md#click-using-computer-vision) and [Column Filter](d365-finance-operations.md#column-filter). Timeout applies more broadly, including [Fill](entering-data.md#fill), [Type](entering-data.md#type) and [Verify](verification.md#verify).
+    Click position, click count and force apply to the click-style commands: [Click](mouse-keyboard.md#click), [Right Click](mouse-keyboard.md#right-click), [Select Options](entering-data.md#select-options), [Click (Computer Vision)](ai.md#click-using-computer-vision) and [Column Filter](d365-finance-operations.md#column-filter). Timeout applies more broadly, including [Fill](entering-data.md#fill), [Type](entering-data.md#type) and [Verify](verification.md#verify).

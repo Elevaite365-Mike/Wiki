@@ -2,21 +2,21 @@
 
 ## Set Variable
 
-**Purpose** — take a value from a field on the page and save it to a variable.
+**Purpose**: take a value from a field on the page and save it to a variable.
 
 **Parameters:**
 
-- **Field label** — the field you're saving the value from
-- **Variable** — the variable you want to save the final output to
-- **Method** — the type of value you want to save
+- **Field label**: the field you're saving the value from
+- **Variable**: the variable you want to save the final output to
+- **Method**: the type of value you want to save
 
 ### Available methods
 
 | Method | Saves |
 | --- | --- |
 | **Auto** | Either the text or the value of the field on the page |
-| **Input Value** | Input fields only — form fields like an email input |
-| **Text Content** | Non-input fields — paragraphs, headers and so on |
+| **Input Value** | Input fields only, such as an email input |
+| **Text Content** | Non-input fields such as paragraphs and headers |
 | **Attribute Name** | A field attribute (requires technical knowledge) |
 | **User Input** | Free-form text where you can put a static value or reference other variables |
 
@@ -24,12 +24,12 @@
 
 ## Modify Variable
 
-**Purpose** — directly modify a variable. The result of this command **replaces** the saved variable's value.
+**Purpose**: directly modify a variable. The result of this command **replaces** the saved variable's value.
 
 **Parameters:**
 
-- **Variable** — select a variable from any application
-- **Function** — how to update that variable
+- **Variable**: select a variable from any application
+- **Function**: how to update that variable
 
 ### Available functions
 

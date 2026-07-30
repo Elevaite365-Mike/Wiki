@@ -1,4 +1,4 @@
-/* elevaite365 — brand theme
+/* elevaite365 brand theme
    Brand orange #FF613C · paper #F2F1ED · ink #2F2E3E · heading #18181B
    Inter, 8px radii, 1px hairline shadows.
 
@@ -53,7 +53,11 @@
 
 /* ---------- Header ---------- */
 .md-header {
-  background: linear-gradient(100deg, #ef4f28 0%, #ff613c 45%, #ff7d5c 100%);
+  background-color: var(--e365-orange);
+  background-image: url("navbg.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   box-shadow: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
@@ -68,7 +72,7 @@
   width: auto;
 }
 
-/* Hide the site name next to the wordmark logo — the logo already says it.
+/* Hide the site name next to the wordmark logo, which already says it.
    Only where the logo is actually shown; below that the title is the only
    branding in the header. */
 @media screen and (min-width: 76.25em) {
@@ -101,24 +105,27 @@
 
   .md-header__button.md-logo {
     margin-left: 0;
-    padding-left: 0.4rem;
+    padding-left: 1rem;
   }
 
   .md-header__inner {
     position: relative;
   }
 
-  /* Absolute centring — the logo's fixed width would otherwise push a
-     flex-centred search off the page's true centre. */
+  /* Absolute centring. The logo's fixed width would otherwise push a
+     flex-centred search off the page's true centre. No transform here: a
+     transformed ancestor becomes the containing block for position:fixed,
+     which would trap the search overlay inside this box. */
   .md-header > .md-header__inner > .md-search {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    margin-inline: auto;
     width: clamp(16rem, 40vw, 34rem);
     padding: 0;
   }
 
-  /* Material sizes the inner wrapper, not the form — override both */
+  /* Material sizes the inner wrapper, not the form, so override both */
   .md-search__inner {
     float: none;
     width: 100%;
@@ -157,14 +164,161 @@
   background-color: rgba(255, 255, 255, 0.26);
 }
 
-[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
-  background: var(--e365-card);
-  border-radius: 8px;
-  box-shadow: var(--e365-shadow);
+/* ---------- Search, open state ----------
+   Material sizes the dim overlay from the .md-search box. Because the search
+   is absolutely positioned here, that produced a grey column the width of the
+   field instead of dimming the page. Pin it to the viewport instead. */
+@media screen and (min-width: 60em) {
+  .md-search__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    transform: none;
+    background-color: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(1px);
+    transition: opacity 200ms ease;
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__overlay {
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+  }
+
+  .md-search__inner {
+    z-index: 2;
+  }
+
+  /* Material widens the inner wrapper to a fixed 34.4rem when the search
+     opens, which overflowed the centred container to the left */
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__inner {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    float: none;
+  }
+
+  /* Field and results read as one card */
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+    background-color: var(--e365-card);
+    border-radius: 10px 10px 0 0;
+    box-shadow: none;
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__input {
+    color: var(--e365-ink);
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__input::placeholder {
+    color: var(--e365-muted);
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__icon {
+    color: var(--e365-muted);
+    opacity: 1;
+  }
+
+  .md-search__output {
+    top: 2.1rem;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 12px 32px rgba(24, 24, 27, 0.18);
+  }
+
+  /* Material widens the scroll wrapper to hide the scrollbar, which spilled
+     past the rounded corners */
+  .md-search__scrollwrap {
+    width: 100% !important;
+    background-color: var(--e365-card);
+    scrollbar-width: thin;
+  }
 }
 
-.md-search__output {
-  border-radius: 0 0 8px 8px;
+.md-search__form {
+  transition: background-color 160ms ease, border-radius 160ms ease;
+}
+
+/* Result list */
+.md-search-result__meta {
+  background-color: var(--e365-paper-2);
+  color: var(--e365-muted);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 2.4rem;
+  padding-inline: 1rem;
+}
+
+.md-search-result__list {
+  padding-bottom: 0.3rem;
+}
+
+.md-search-result__item {
+  box-shadow: 0 -1px 0 var(--e365-line);
+}
+
+.md-search-result__item:first-child {
+  box-shadow: none;
+}
+
+.md-search-result__link {
+  padding: 0.1rem 0.4rem;
+  transition: background-color 120ms ease;
+}
+
+.md-search-result__link:focus,
+.md-search-result__link:hover {
+  background-color: rgba(255, 97, 60, 0.07);
+}
+
+.md-search-result__article {
+  padding-inline: 1rem;
+}
+
+.md-search-result__article--document .md-search-result__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--e365-heading);
+  margin-bottom: 0.2rem;
+}
+
+.md-search-result__teaser {
+  color: var(--e365-muted);
+  line-height: 1.5;
+}
+
+.md-search-result mark {
+  color: var(--e365-orange-deep);
+  background-color: rgba(255, 97, 60, 0.14);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.md-search-result__more > summary > div {
+  color: var(--e365-orange-deep);
+  font-size: 0.66rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Material pins the magnifier to a fixed top offset, which sits a few pixels
+   high in a taller field. Centre it, and lighten it so it reads as a hint
+   rather than a control. */
+.md-search__form .md-search__icon[for] {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.1rem;
+  height: 1.1rem;
+  opacity: 0.7;
+}
+
+.md-search__form .md-search__icon[for] svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* ---------- Roadmap button (Material's "repo" slot) ---------- */
@@ -370,11 +524,6 @@
   }
 }
 
-.md-typeset .lede {
-  font-size: 0.85rem;
-  color: var(--e365-muted);
-}
-
 .md-typeset .popular > ul {
   columns: 2;
   column-gap: 2.5rem;
@@ -393,6 +542,81 @@
   .md-typeset .popular > ul {
     columns: 1;
   }
+}
+
+/* ---------- Inline SVG diagrams ----------
+   Self-contained: no CDN, no JS. Material's mermaid support fetches from
+   unpkg, which is the wrong dependency for pages security teams read. */
+.md-typeset .diagram {
+  margin: 1.4em 0;
+  overflow-x: auto;
+}
+
+.md-typeset .diagram svg {
+  display: block;
+  width: 100%;
+  min-width: 34rem;
+  height: auto;
+  font-family: var(--md-text-font-family, var(--md-text-font));
+}
+
+.md-typeset .diagram .d-panel rect {
+  fill: rgba(24, 24, 27, 0.03);
+  stroke: var(--e365-line);
+  stroke-width: 1;
+}
+
+.md-typeset .diagram .d-panel-label {
+  fill: var(--e365-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.md-typeset .diagram .d-box rect {
+  fill: var(--e365-card);
+  stroke: var(--e365-line);
+  stroke-width: 1;
+}
+
+.md-typeset .diagram .d-box--accent rect {
+  stroke: var(--e365-orange);
+}
+
+.md-typeset .diagram .d-box--dashed rect {
+  stroke-dasharray: 4 3;
+}
+
+.md-typeset .diagram .d-h {
+  fill: var(--e365-heading);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.md-typeset .diagram .d-p {
+  fill: var(--e365-muted);
+  font-size: 11px;
+}
+
+.md-typeset .diagram .d-flow path {
+  fill: none;
+  stroke: var(--e365-orange);
+  stroke-width: 1.5;
+}
+
+.md-typeset .diagram .d-flow--dashed path {
+  stroke: var(--e365-muted);
+  stroke-dasharray: 4 3;
+}
+
+.md-typeset .diagram marker path {
+  fill: var(--e365-orange);
+  stroke: none;
+}
+
+.md-typeset .diagram .d-flow-label {
+  fill: var(--e365-ink);
+  font-size: 11px;
 }
 
 /* ---------- Video embeds ---------- */

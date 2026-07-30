@@ -2,64 +2,64 @@
 
 ## Click
 
-**Purpose** — left-click somewhere on the webpage.
+**Purpose**: left-click somewhere on the webpage.
 
 <div class="video">
   <iframe src="https://www.youtube-nocookie.com/embed/q0i1S5mKDcM" title="elevaite365 demo: Click command" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-**Parameters** — the Click command has one parameter, **field label**. This points to the field you want the automation to locate and then click on.
+**Parameters**: the Click command has one parameter, **field label**. This points to the field you want the automation to locate and then click on.
 
-**Advanced** — [click position](index.md#click-position), [click count](index.md#click-count), [force](index.md#force), [timeout](index.md#timeout).
+**Advanced**: [click position](index.md#click-position), [click count](index.md#click-count), [force](index.md#force), [timeout](index.md#timeout).
 
 ## Right Click
 
-**Purpose** — right-click somewhere on the webpage.
+**Purpose**: right-click somewhere on the webpage.
 
-**Parameters** — one parameter, **field label**. This points to the field you want the automation to locate and then click on.
+**Parameters**: one parameter, **field label**. This points to the field you want the automation to locate and then click on.
 
-**Advanced** — [click position](index.md#click-position), [click count](index.md#click-count), [force](index.md#force), [timeout](index.md#timeout).
+**Advanced**: [click position](index.md#click-position), [click count](index.md#click-count), [force](index.md#force), [timeout](index.md#timeout).
 
 ## Mouse Hover
 
-**Purpose** — hover over an element on the webpage.
+**Purpose**: hover over an element on the webpage.
 
 <div class="video">
   <iframe src="https://www.youtube-nocookie.com/embed/fws9ZKTh-oI" title="elevaite365 demo: Mouse Hover command" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-**Parameters** — one parameter, **field label**. This points to the field you want the automation to locate and then hover over.
+**Parameters**: one parameter, **field label**. This points to the field you want the automation to locate and then hover over.
 
 ## Move Mouse
 
-**Purpose** — move the mouse to an exact position on the page.
+**Purpose**: move the mouse to an exact position on the page.
 
-**Parameters** — two parameters, **X** and **Y**. These are pixel coordinates; `0,0` is the top left of the webpage.
+**Parameters**: two parameters, **X** and **Y**. These are pixel coordinates; `0,0` is the top left of the webpage.
 
 ## Scroll Page
 
-**Purpose** — simulate mouse scrolling. Works for both vertical and horizontal scrolling.
+**Purpose**: simulate mouse scrolling. Works for both vertical and horizontal scrolling.
 
 <div class="video">
   <iframe src="https://www.youtube-nocookie.com/embed/Fc3zB6lX_RM" title="elevaite365 demo: Mouse Scroll" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-**Parameters** — three parameters. The first is a dropdown with two options:
+**Parameters**: three parameters. The first is a dropdown with two options:
 
 | Mode | Use when |
 | --- | --- |
-| **Relative** | You want to scroll relative to the current scroll position — for example, an additional 20 pixels |
+| **Relative** | You want to scroll relative to the current scroll position. For example, an additional 20 pixels |
 | **Absolute** | You want an exact scroll position, measured from the top left of the webpage |
 
 ## Press Key
 
-**Purpose** — simulate pressing keyboard keys. Also accepts multi-keys and shortcuts.
+**Purpose**: simulate pressing keyboard keys. Also accepts multi-keys and shortcuts.
 
 <div class="video">
   <iframe src="https://www.youtube-nocookie.com/embed/54Yf733UtvM" title="elevaite365 demo: Press Key command" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-**Parameters** — a single parameter, **Key**: the keyboard code you want the automation to simulate.
+**Parameters**: a single parameter, **Key**: the keyboard code you want the automation to simulate.
 
 ### Supported keys
 
@@ -74,11 +74,11 @@ A full list is available under the `KeyboardEvent.Key` column in the [MDN key va
 `Shift`, `Control`, `Alt`, `Meta`, `ShiftLeft`, `ControlOrMeta`
 
 !!! tip "ControlOrMeta"
-    `ControlOrMeta` resolves to Control on Windows and Linux, and to Meta on macOS — so one step covers both.
+    `ControlOrMeta` resolves to Control on Windows and Linux, and to Meta on macOS, so one step covers both.
 
 ## Drag and Drop
 
-**Purpose** — drag an element on the page.
+**Purpose**: drag an element on the page.
 
 <div class="video">
   <iframe src="https://www.youtube-nocookie.com/embed/rrmpSjkaeXo" title="elevaite365 demo: Drag & Drop command" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>

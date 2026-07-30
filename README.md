@@ -1,6 +1,6 @@
 # elevaite365 Help Centre
 
-MkDocs (Material) self-help wiki for elevaite365 — the no-code test automation tool for Microsoft Dynamics 365.
+MkDocs (Material) self-help wiki for elevaite365, the no-code test automation tool for Microsoft Dynamics 365.
 
 Content is ported from the previous Frappe wiki at `elevaite365.s.frappe.cloud/wiki`.
 
@@ -21,10 +21,24 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ## Build
 
 ```bash
-.venv/bin/mkdocs build --strict
+.venv/bin/mkdocs build
 ```
 
-Output goes to `site/` (untracked). `--strict` turns broken internal links into errors — keep it in CI.
+Output goes to `site/`, which is untracked. `strict: true` is set in `mkdocs.yml`, so broken internal links and anchors fail the build locally and in CI.
+
+## Deploying
+
+Hosted on GitHub Pages, built by [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Every push to `main` builds the site and publishes it. No `gh-pages` branch and no committed `site/` directory: the workflow uploads the build as a Pages artifact.
+
+One-time setup on the repository:
+
+1. **Settings > Pages > Build and deployment > Source**, choose **GitHub Actions**.
+2. Add a DNS `CNAME` record for `help.elevaite365.com` pointing at `<org>.github.io`.
+3. Back in **Settings > Pages**, set the custom domain to `help.elevaite365.com` and tick **Enforce HTTPS** once the certificate is issued.
+
+The custom domain is committed at `docs/CNAME`, which MkDocs copies into the build output. If you would rather serve from the default `https://<org>.github.io/<repo>/` address, delete that file and change `site_url` in `mkdocs.yml` to match. Page links are relative, so nothing else needs to change.
+
+Dependencies are pinned in `requirements.txt` so a CI build matches your local one. Bump them deliberately, not by accident.
 
 ## Structure
 
@@ -46,7 +60,7 @@ docs/
 
 The old wiki had one page per command, most of them a few lines. Here they're grouped by category (`mouse-keyboard`, `entering-data`, `verification`, …) with an anchor per command, and `commands/index.md` carries a full A-to-Z table linking to each anchor. Search still finds individual commands by name.
 
-The four repeated Advanced options — click position, click count, force, timeout — are documented once on `commands/index.md` and linked from each command instead of being restated a dozen times.
+The four repeated Advanced options, click position, click count, force, timeout, are documented once on `commands/index.md` and linked from each command instead of being restated a dozen times.
 
 ## Theme
 
@@ -62,7 +76,7 @@ Brand tokens are sampled from [roadmap.elevaite365.com](https://roadmap.elevaite
 | Typeface | Inter | |
 | Radius | 8px | |
 
-Single light scheme (`elevaite`) — no dark mode. Change a colour in one place, the `:root` block, and it propagates.
+Single light scheme (`elevaite`), no dark mode. Change a colour in one place, the `:root` block, and it propagates.
 
 `orange-deep` is the brand orange darkened to the same hue. Small text in `#FF613C` on the paper background sits at about 2.5:1 contrast, below the WCAG AA minimum of 4.5:1, so links and active nav use the deeper shade while everything large or filled uses the brand orange itself.
 
@@ -77,19 +91,19 @@ Single light scheme (`elevaite`) — no dark mode. Change a colour in one place,
 
 All 43 pages of the old wiki have been ported. Two things need your attention before publishing:
 
-**Missing screenshots.** Twelve images on the old wiki live under `/private/files/` and return 403 to anyone not logged in — they are broken on the old wiki too. Their places are marked with `<!-- TODO screenshot: ... -->` comments in the Markdown. Re-export and drop them into `docs/assets/img/`. Affected pages: `tests/test-recorder.md` (4), `quickstart/create-scenarios.md` (5), `commands/entering-data.md` (2), `commands/d365-finance-operations.md` (1). The five public images did port and are in place.
+**Missing screenshots.** Twelve images on the old wiki live under `/private/files/` and return 403 to anyone not logged in, they are broken on the old wiki too. Their places are marked with `<!-- TODO screenshot: ... -->` comments in the Markdown. Re-export and drop them into `docs/assets/img/`. Affected pages: `tests/test-recorder.md` (4), `quickstart/create-scenarios.md` (5), `commands/entering-data.md` (2), `commands/d365-finance-operations.md` (1). The five public images did port and are in place.
 
-**A duplicated source page.** `/wiki/toggle-checkbox`, listed under D365 Finance & Operations, contained a verbatim copy of the Expand Or Collapse Section page — so there is no F&O Toggle Checkbox content to port. The Business Central `Toggle Checkbox (BC)` page exists and is ported; note its body described F&O rather than BC, and has been written up under Business Central to match where it sits in the old sidebar. Worth confirming.
+**A duplicated source page.** `/wiki/toggle-checkbox`, listed under D365 Finance & Operations, contained a verbatim copy of the Expand Or Collapse Section page, so there is no F&O Toggle Checkbox content to port. The Business Central `Toggle Checkbox (BC)` page exists and is ported; note its body described F&O rather than BC, and has been written up under Business Central to match where it sits in the old sidebar. Worth confirming.
 
 Copy has been lightly edited for typos and consistency; the substance is unchanged.
 
 ## Videos
 
-Twelve demo videos from the three unlisted YouTube playlists are embedded in the articles they document, using privacy-mode (`youtube-nocookie.com`) lazy-loaded iframes. `help/videos.md` is the index — every video, the article it maps to, and links to the source playlists.
+Twelve demo videos from the three unlisted YouTube playlists are embedded in the articles they document, using privacy-mode (`youtube-nocookie.com`) lazy-loaded iframes. `help/videos.md` is the index, every video, the article it maps to, and links to the source playlists.
 
 Two videos have no article to sit in:
 
-- **Dialog/Alert Command** — there is no Dialog/Alert command page; the old wiki never documented one
-- **AI Self Repair** — the feature isn't documented anywhere in the ported content
+- **Dialog/Alert Command**: there is no Dialog/Alert command page; the old wiki never documented one
+- **AI Self Repair**: the feature isn't documented anywhere in the ported content
 
 Both are listed in the video library marked *Not yet documented*. Write those two pages and the marker can go.

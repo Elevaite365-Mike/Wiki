@@ -3,7 +3,7 @@
 Every demo video, and the article it belongs to.
 
 !!! note "Unlisted videos"
-    These are unlisted on YouTube — anyone with the link can watch, but they don't appear in search or on the channel. They're embedded directly in the articles below.
+    These are unlisted on YouTube. Anyone with the link can watch, but they don't appear in search or on the channel. They're embedded directly in the articles below.
 
 ## Command demos
 

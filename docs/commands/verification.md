@@ -2,7 +2,7 @@
 
 ## Verify
 
-**Purpose** — verify something on the page.
+**Purpose**: verify something on the page.
 
 ### Verify types
 
@@ -16,7 +16,7 @@
 | 6 | **Editable** | A field is editable |
 | 7 | **Contains** | A text field contains text (does not work for inputs) |
 | 8 | **Value** | An input field contains a value (does not work for non-input fields) |
-| 9 | **Option** | A field has a specific option — goes off [standard HTML select values](https://www.w3schools.com/tags/tag_option.asp) |
+| 9 | **Option** | A field has a specific option, using [standard HTML select values](https://www.w3schools.com/tags/tag_option.asp) |
 | 10 | **Empty** | An input field is empty |
 | 11 | **Focused** | A field is in focus |
 | 12 | **Viewport** | A field is inside the [viewport](https://www.w3schools.com/css/css_rwd_viewport.asp) |
@@ -25,7 +25,7 @@
 | 15 | **DOM Attribute** | A field has a specific DOM attribute |
 | 16 | **Class** | A field has a specific class |
 | 17 | **Children Count** | A field has a specific count of child elements |
-| 18 | **CSS Property** | A field has a specific CSS property — for example `display,none` |
+| 18 | **CSS Property** | A field has a specific CSS property, for example `display,none` |
 | 19 | **ID** | A field has a specific ID |
 | 20 | **Javascript Property** | A field has a specific JS property |
 | 21 | **ARIA Role** | A field has a specific [ARIA role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles) |
@@ -49,7 +49,7 @@ The **Verify Field** command checks one or more properties of a field and valida
 
 ### Field setup
 
-Start by selecting the **field** you want to verify. You can then configure a series of checks — beginning with visibility, followed by content or value validation.
+Start by selecting the **field** you want to verify. You can then configure a series of checks, starting with visibility and then content or value validation.
 
 ![Verify Field setup](../assets/img/verify-field-image98a866.png)
 
@@ -72,9 +72,9 @@ This confirms the field's presence and availability before continuing with furth
 
 After the visibility check you can add a value or content verification. Use the **Verification** dropdown to select:
 
-- **should** — the field is expected to match the condition
-- **should not** — the field is expected *not* to match the condition
-- **none** — skip content verification and use only the visibility check
+- **should**: the field is expected to match the condition
+- **should not**: the field is expected *not* to match the condition
+- **none**: skip content verification and use only the visibility check
 
 Then choose what to verify:
 

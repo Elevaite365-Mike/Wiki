@@ -1,19 +1,37 @@
 # Adding applications
 
-elevaite365 works for any web-based application. You can add any URL via the applications dropdown.
+An **application** is the system you're testing.
 
-## Add an application
+## What we support
 
-1. Navigate to the **Library** page.
-2. Click the **+** icon above the applications dropdown.
-3. A dropdown appears with several quickstart applications. If your application isn't listed, click **Add a different application**.
-4. Enter an **application name** — for example, `Salesforce`.
-5. Enter the **initial version**. This is just a label.
+| Type | Coverage |
+| --- | --- |
+| **Web applications** | Most web-based applications, including the Dynamics 365 apps |
+| **Windows desktop applications** | Selected applications. The list is growing, so [ask us](mailto:help@elevaite365.com) about yours |
 
-Once submitted, your new application appears in the dropdown.
+!!! question "Is my desktop application supported?"
+    We add Windows desktop applications regularly, so the supported list changes. Rather than publish a list that goes stale, email **[help@elevaite365.com](mailto:help@elevaite365.com)** with the application you want to test and we'll tell you where it stands, including whether it's already on the way.
 
-!!! tip "Quickstart applications"
-    The quickstart list covers the common Dynamics 365 apps. Picking one from the list gives you the D365-aware defaults — including the login logic — without any extra setup.
+!!! info "Applications are added by elevaite365"
+    Applications are licensed, so they can only be added by elevaite365 staff. You can't add one yourself from the Library page.
+
+    To have an application added to your instance, email **[help@elevaite365.com](mailto:help@elevaite365.com)**.
+
+## Requesting an application
+
+Include the following in your request and we can usually set it up without coming back to you:
+
+- [ ] The **application name**. For example, `Dynamics 365 Finance & Operations`, `Business Central`, `Salesforce`
+- [ ] Whether it's a **web** or **Windows desktop** application
+- [ ] The **version** you're on, if you know it, this is just a label
+- [ ] Which **instance** it's for, if your organisation has more than one
+- [ ] Who should be notified once it's ready
+
+Once it's added, the application appears in the applications dropdown on the **Library** page, and you can get on with [adding environments](adding-environments.md) yourself.
+
+## Licensing
+
+Each application on your instance is covered by your licence. If you need to test something new (a different D365 module, a non-Microsoft system, or a Windows desktop application) talk to us first. It may already be covered, and if not we'll tell you what changes.
 
 ---
 

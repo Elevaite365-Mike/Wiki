@@ -12,7 +12,7 @@ If the test is empty you'll see a large **Start Recorder** button. Click it to e
 
 ## Adding steps to an existing test
 
-If you don't see that option, it means the test already has steps. You must first run your script up to the point where you want to record additional steps — for example, to add steps to the end, run the script in full.
+If you don't see that option, it means the test already has steps. You must first run your script up to the point where you want to record additional steps. For example, to add steps to the end, run the script in full.
 
 Once it's finished, click the **+** button at the bottom of the test, or right-click and select **Record from here**.
 
@@ -42,4 +42,4 @@ Click **Stop Recorder** on the steps view, or click the red circle in the toolba
 
 ---
 
-Next: [Command reference](../commands/index.md)
+Next: [Templates](templates.md)

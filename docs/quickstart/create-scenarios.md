@@ -11,11 +11,11 @@ Key points:
 
 ## Create a scenario
 
-Navigate to the **Scenarios** page — click the Scenarios tab at the top of your browser.
+Navigate to the **Scenarios** page by clicking the Scenarios tab at the top of your browser.
 
 <!-- TODO screenshot: The scenarios page (was create-scenarios-scenario.png; the source file is private on the old wiki) -->
 
-From here you can see a list of your scenarios. To create your first, click the orange **Create Scenario** button in the top right and enter a name — for example `Order to cash` or `Procure to pay`.
+From here you can see a list of your scenarios. To create your first, click the orange **Create Scenario** button in the top right and enter a name, for example `Order to cash` or `Procure to pay`.
 
 Once your scenario is created, click into it.
 

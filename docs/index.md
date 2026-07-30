@@ -6,10 +6,7 @@ hide:
 
 # Welcome to the elevaite365 Help Centre
 
-Your no-code companion for testing Microsoft Dynamics 365 — build, run and maintain reliable test suites without writing a line of code.
-{ .lede }
-
-New here? The quickstart takes you from an empty workspace to a scheduled test.
+New here? The quickstart takes you from an empty instance to a scheduled test.
 
 [Start the quickstart](quickstart/index.md){ .md-button .md-button--primary }
 [Command reference](commands/index.md){ .md-button }
@@ -38,7 +35,7 @@ New here? The quickstart takes you from an empty workspace to a scheduled test.
 
     ---
 
-    Every command and its parameters — clicking, entering data, verifying, variables, loops and the AI commands.
+    Every command and its parameters: clicking, entering data, verifying, variables, loops and the AI commands.
 
     [:octicons-arrow-right-24: Command reference](commands/index.md)
 
@@ -54,9 +51,17 @@ New here? The quickstart takes you from an empty workspace to a scheduled test.
 
 ## Tips & tricks
 
-Six habits that keep a suite trustworthy.
+Seven habits that keep a suite trustworthy.
 
 <div class="grid cards" markdown>
+
+-   **Run a new test three times**
+
+    ---
+
+    Passing once proves very little. Three green runs before you call it ready catches the flakiness that would otherwise surface in a nightly run.
+
+    [:octicons-arrow-right-24: Tips & best practices](help/tips.md#run-a-new-test-three-times-before-you-call-it-ready)
 
 -   **Reuse steps with components**
 
@@ -112,15 +117,15 @@ Six habits that keep a suite trustworthy.
 
 <div class="popular" markdown>
 
-- [Using the test recorder](tests/test-recorder.md) — capture a process in clicks
-- [Setup test users](quickstart/setup-test-users.md) — logins the automation can use
-- [Verify & Verify Field](commands/verification.md) — every check available
-- [Loop](commands/loop.md) — fields, ranges and data-driven runs
-- [Create scenarios](quickstart/create-scenarios.md) — group and schedule tests
-- [Video library](help/videos.md) — every demo, mapped to its article
-- [Glossary](help/glossary.md) — plain-English definitions
+- [Using the test recorder](tests/test-recorder.md): capture a process in clicks
+- [Setup test users](quickstart/setup-test-users.md): logins the automation can use
+- [Verify & Verify Field](commands/verification.md): every check available
+- [Loop](commands/loop.md): fields, ranges and data-driven runs
+- [Create scenarios](quickstart/create-scenarios.md): group and schedule tests
+- [Video library](help/videos.md): every demo, mapped to its article
+- [Glossary](help/glossary.md): plain-English definitions
 
 </div>
 
 !!! tip "Can't find what you need?"
-    Press ++slash++ to search the whole wiki. Still stuck — [get support](help/support.md), or check the [public roadmap](https://roadmap.elevaite365.com/) to see if it's already on the way.
+    Press ++slash++ to search the whole wiki. Still stuck? [Get support](help/support.md), or check the [public roadmap](https://roadmap.elevaite365.com/) to see if it's already on the way.
