@@ -30,13 +30,18 @@ Output goes to `site/`, which is untracked. `strict: true` is set in `mkdocs.yml
 
 Hosted on GitHub Pages, built by [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Every push to `main` builds the site and publishes it. No `gh-pages` branch and no committed `site/` directory: the workflow uploads the build as a Pages artifact.
 
-One-time setup on the repository:
+**Required repository setting.** Go to **Settings > Pages > Build and deployment** and set **Source** to **GitHub Actions**. If it is left on *Deploy from a branch*, GitHub runs Jekyll over the repository root and publishes a rendered `README.md` instead of the built site.
 
-1. **Settings > Pages > Build and deployment > Source**, choose **GitHub Actions**.
-2. Add a DNS `CNAME` record for `help.elevaite365.com` pointing at `<org>.github.io`.
-3. Back in **Settings > Pages**, set the custom domain to `help.elevaite365.com` and tick **Enforce HTTPS** once the certificate is issued.
+The site publishes to <https://elevaite365-mike.github.io/Wiki/>.
 
-The custom domain is committed at `docs/CNAME`, which MkDocs copies into the build output. If you would rather serve from the default `https://<org>.github.io/<repo>/` address, delete that file and change `site_url` in `mkdocs.yml` to match. Page links are relative, so nothing else needs to change.
+### Moving to a custom domain
+
+1. Add a DNS `CNAME` record for the domain pointing at `elevaite365-mike.github.io`.
+2. Create `docs/CNAME` containing just the hostname, for example `help.elevaite365.com`. MkDocs copies it into the build output.
+3. Set `site_url` in `mkdocs.yml` to the same address, so canonical URLs and the sitemap match.
+4. In **Settings > Pages**, set the custom domain and tick **Enforce HTTPS** once the certificate is issued.
+
+Page links are relative, so nothing else needs to change.
 
 Dependencies are pinned in `requirements.txt` so a CI build matches your local one. Bump them deliberately, not by accident.
 
