@@ -1,0 +1,106 @@
+site_name: elevaite365 Help Centre
+site_description: Self-help guide for the elevaite365 test automation solution.
+site_url: https://help.elevaite365.com/
+repo_url: https://roadmap.elevaite365.com/
+repo_name: Roadmap
+copyright: © elevaite365
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: material/map-outline
+  palette:
+    scheme: elevaite
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+
+extra_css:
+  - assets/brand.css
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/solid/map
+      link: https://roadmap.elevaite365.com/
+      name: Public roadmap
+  generator: false
+
+nav:
+  - Home: index.md
+  - Quickstart:
+      - Introduction: quickstart/index.md
+      - Setup your team: quickstart/setup-your-team.md
+      - Adding applications: quickstart/adding-applications.md
+      - Adding environments: quickstart/adding-environments.md
+      - Setup test users: quickstart/setup-test-users.md
+      - Create components: quickstart/create-components.md
+      - Create scenarios: quickstart/create-scenarios.md
+  - Test cases:
+      - Create a test script: tests/create-test-script.md
+      - Using the test recorder: tests/test-recorder.md
+  - Commands:
+      - Overview: commands/index.md
+      - Mouse & keyboard: commands/mouse-keyboard.md
+      - Entering data: commands/entering-data.md
+      - Verification: commands/verification.md
+      - Variables: commands/variables.md
+      - Navigation & waiting: commands/navigation.md
+      - Microsoft login: commands/login.md
+      - AI commands: commands/ai.md
+      - Loop: commands/loop.md
+      - D365 Finance & Operations: commands/d365-finance-operations.md
+      - D365 Business Central: commands/d365-business-central.md
+  - Help:
+      - Tips & best practices: help/tips.md
+      - Video library: help/videos.md
+      - Glossary: help/glossary.md
+      - Getting support: help/support.md
+  - Roadmap: https://roadmap.elevaite365.com/
