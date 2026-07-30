@@ -181,6 +181,11 @@
     transform: none;
     background-color: rgba(24, 24, 27, 0.4);
     backdrop-filter: blur(1px);
+    opacity: 0;
+    /* The overlay is a <label for="__search">. It covers the viewport even
+       when closed, so it must not take clicks until the search is open,
+       or every click on the page opens the search. */
+    pointer-events: none;
     transition: opacity 200ms ease;
   }
 
@@ -188,6 +193,7 @@
     width: 100vw;
     height: 100vh;
     opacity: 1;
+    pointer-events: auto;
   }
 
   .md-search__inner {
