@@ -24,8 +24,8 @@ This repo builds two MkDocs projects into a single published site:
 
 | Project | Config | Publishes to |
 | --- | --- | --- |
-| Help Centre | `mkdocs.yml` | `/Wiki/` |
-| Agreements | `agreements/mkdocs.yml` | `/Wiki/agreements/` |
+| Help Centre | `mkdocs.yml` | <https://help.elevaite365.com/> |
+| Agreements | `agreements/mkdocs.yml` | <https://help.elevaite365.com/agreements/> |
 
 Agreements is separate so it has its own sidebar rather than appearing in the Help Centre nav. The two are only linked by ordinary hyperlinks.
 
@@ -59,18 +59,11 @@ Because the two projects build separately, a link from one into the other is not
 
 Hosted on GitHub Pages, built by [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Every push to `main` builds the site and publishes it. No `gh-pages` branch and no committed `site/` directory: the workflow uploads the build as a Pages artifact.
 
-**Required repository setting.** Go to **Settings > Pages > Build and deployment** and set **Source** to **GitHub Actions**. If it is left on *Deploy from a branch*, GitHub runs Jekyll over the repository root and publishes a rendered `README.md` instead of the built site.
+**Required repository setting.** **Settings > Pages > Build and deployment > Source** must be **GitHub Actions**. If it is left on *Deploy from a branch*, GitHub runs Jekyll over the repository root and publishes a rendered `README.md` instead of the built site.
 
-The site publishes to <https://elevaite365-mike.github.io/Wiki/>.
+The site is served from the custom domain **help.elevaite365.com**, configured under **Settings > Pages > Custom domain**. The domain lives in the Pages settings rather than in a `CNAME` file, which is how Actions-based deployments work.
 
-### Moving to a custom domain
-
-1. Add a DNS `CNAME` record for the domain pointing at `elevaite365-mike.github.io`.
-2. Create `docs/CNAME` containing just the hostname, for example `help.elevaite365.com`. MkDocs copies it into the build output.
-3. Set `site_url` in `mkdocs.yml` to the same address, so canonical URLs and the sitemap match.
-4. In **Settings > Pages**, set the custom domain and tick **Enforce HTTPS** once the certificate is issued.
-
-Page links are relative, so nothing else needs to change.
+`site_url` in both configs points at that domain, which drives canonical URLs and the sitemaps. Every other link on the site is relative, so the build does not depend on the base path.
 
 Dependencies are pinned in `requirements.txt` so a CI build matches your local one. Bump them deliberately, not by accident.
 

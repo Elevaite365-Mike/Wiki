@@ -5,7 +5,7 @@
 
 site_name: elevaite365 Agreements
 site_description: Agreements governing the use of elevaite365 software and services.
-site_url: https://elevaite365-mike.github.io/Wiki/agreements/
+site_url: https://help.elevaite365.com/agreements/
 copyright: © elevaite365
 
 strict: true
@@ -38,7 +38,7 @@ theme:
     - content.tooltips
 
 # Sends readers back to the Help Centre from the header
-repo_url: https://elevaite365-mike.github.io/Wiki/
+repo_url: https://help.elevaite365.com/
 repo_name: Help Centre
 
 extra_css:
