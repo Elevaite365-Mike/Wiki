@@ -31,8 +31,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Build
-        run: mkdocs build --strict
+      - name: Build both sites
+        run: MKDOCS=mkdocs ./build.sh
 
       - uses: actions/upload-pages-artifact@v3
         with:

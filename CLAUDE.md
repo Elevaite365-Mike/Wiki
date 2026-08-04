@@ -33,7 +33,9 @@ Prefer short declarative sentences, concrete nouns and plain verbs. Vary sentenc
 ## Build
 
 ```bash
-.venv/bin/mkdocs build --strict
+./build.sh
 ```
 
-Must pass with no warnings before any change is considered done.
+Builds the Help Centre (`mkdocs.yml`) and the Agreements sub-site (`agreements/mkdocs.yml`) into `site/`. Must pass with no warnings before any change is considered done.
+
+Agreements is a separate project so it gets its own sidebar. Its pages live in `agreements/docs/`, not `docs/`. Links between the two projects are absolute and include the `/Wiki/` base path.

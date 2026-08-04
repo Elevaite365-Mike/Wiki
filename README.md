@@ -18,13 +18,42 @@ Fresh machine:
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
+## Two projects, one site
+
+This repo builds two MkDocs projects into a single published site:
+
+| Project | Config | Publishes to |
+| --- | --- | --- |
+| Help Centre | `mkdocs.yml` | `/Wiki/` |
+| Agreements | `agreements/mkdocs.yml` | `/Wiki/agreements/` |
+
+Agreements is separate so it has its own sidebar rather than appearing in the Help Centre nav. The two are only linked by ordinary hyperlinks.
+
+Brand assets have one source of truth in `docs/assets/`. `build.sh` copies `brand.css`, `logo.png` and `navbg.png` into `agreements/docs/assets/` at build time, and that copy is gitignored. Edit the originals, never the copies.
+
 ## Build
 
 ```bash
-.venv/bin/mkdocs build
+./build.sh
 ```
 
-Output goes to `site/`, which is untracked. `strict: true` is set in `mkdocs.yml`, so broken internal links and anchors fail the build locally and in CI.
+Builds both projects into `site/`, which is untracked. `strict: true` is set in both configs, so broken internal links and anchors fail the build locally and in CI.
+
+Previewing one project at a time:
+
+```bash
+.venv/bin/mkdocs serve
+```
+
+```bash
+./serve-agreements.sh
+```
+
+The second runs on port 8001.
+
+Cross-project links are written as raw HTML with relative paths (`agreements/` and `../`) rather than Markdown links. MkDocs validates Markdown links against the current project's files and would reject a path belonging to the other project; raw HTML is left alone. Relative paths also keep the links correct whatever base path the site is published at.
+
+Because the two projects build separately, a link from one into the other is not checked by either build. If you rename an agreement page, update the Help Centre links by hand.
 
 ## Deploying
 

@@ -660,6 +660,20 @@
   margin: 1em 0;
 }
 
+/* ---------- Agreements sub-site ---------- */
+.md-typeset .back-link {
+  margin-top: -0.6em;
+  font-size: 0.7rem;
+}
+
+.md-typeset .back-link a {
+  color: var(--e365-muted);
+}
+
+.md-typeset .back-link a:hover {
+  color: var(--e365-orange-deep);
+}
+
 /* ---------- Misc ---------- */
 .md-typeset kbd {
   border-radius: 5px;

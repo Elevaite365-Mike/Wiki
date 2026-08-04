@@ -1,0 +1,78 @@
+# Agreements is a separate MkDocs project so it gets its own sidebar,
+# independent of the Help Centre nav. It builds into site/agreements/ and
+# ships in the same GitHub Pages artifact. Run ./build.sh from the repo root
+# to build both, or ./serve-agreements.sh to preview this one on its own.
+
+site_name: elevaite365 Agreements
+site_description: Agreements governing the use of elevaite365 software and services.
+site_url: https://elevaite365-mike.github.io/Wiki/agreements/
+copyright: © elevaite365
+
+strict: true
+
+validation:
+  links:
+    anchors: warn
+    absolute_links: ignore
+    unrecognized_links: warn
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: material/book-open-variant
+  palette:
+    scheme: elevaite
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.tooltips
+
+# Sends readers back to the Help Centre from the header
+repo_url: https://elevaite365-mike.github.io/Wiki/
+repo_name: Help Centre
+
+extra_css:
+  - assets/brand.css
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+
+extra:
+  generator: false
+
+nav:
+  - Overview: index.md
+  - Customer Support Services Terms: customer-support-services-terms.md
+  - Customer Essentials Support Order Form: essentials-support-order-form.md
+  - Technical Onboarding SOW: technical-onboarding-sow.md
+  - Partner Support Terms: partner-support-terms.md

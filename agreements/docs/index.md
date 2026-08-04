@@ -1,5 +1,8 @@
 # Agreements
 
+<a href="../">:octicons-arrow-left-24: Back to the Help Centre</a>
+{ .back-link }
+
 The agreements below govern the use of elevaite365 software and services. Each document is posted in its current version and supersedes all prior versions.
 
 !!! warning "All documents currently in draft, for internal review"
