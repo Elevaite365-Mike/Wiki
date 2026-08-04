@@ -108,3 +108,9 @@ nav:
       - Loop: commands/loop.md
       - D365 Finance & Operations: commands/d365-finance-operations.md
       - D365 Business Central: commands/d365-business-central.md
+  - Agreements:
+      - Overview: agreements/index.md
+      - Customer Support Services Terms: agreements/customer-support-services-terms.md
+      - Customer Essentials Support Order Form: agreements/essentials-support-order-form.md
+      - Technical Onboarding SOW: agreements/technical-onboarding-sow.md
+      - Partner Support Terms: agreements/partner-support-terms.md
