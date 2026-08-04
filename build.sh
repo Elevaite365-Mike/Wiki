@@ -7,6 +7,10 @@
 # project at build time, so there is one source of truth for the theme.
 set -euo pipefail
 cd "$(dirname "$0")"
+# Material prints an advocacy notice about MkDocs 2.0 on every build. It is
+# not about this project. Its own opt-out:
+export NO_MKDOCS_2_WARNING=1
+
 
 MKDOCS="${MKDOCS:-.venv/bin/mkdocs}"
 

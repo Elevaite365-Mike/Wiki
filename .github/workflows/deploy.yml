@@ -33,6 +33,8 @@ jobs:
 
       - name: Build both sites
         run: MKDOCS=mkdocs ./build.sh
+        env:
+          NO_MKDOCS_2_WARNING: "1"
 
       - uses: actions/upload-pages-artifact@v3
         with:
