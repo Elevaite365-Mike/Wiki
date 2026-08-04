@@ -24,7 +24,7 @@ theme:
     text: Inter
     code: JetBrains Mono
   icon:
-    repo: material/book-open-variant
+    repo: material/map-outline
   palette:
     scheme: elevaite
   features:
@@ -37,9 +37,9 @@ theme:
     - content.tabs.link
     - content.tooltips
 
-# Sends readers back to the Help Centre from the header
-repo_url: https://help.elevaite365.com/
-repo_name: Help Centre
+# Same Roadmap button as the Help Centre header
+repo_url: https://roadmap.elevaite365.com/
+repo_name: Roadmap
 
 extra_css:
   - assets/brand.css
@@ -69,6 +69,8 @@ plugins:
 
 extra:
   generator: false
+  # Clicking the logo leaves the sub-site and returns to the Help Centre
+  homepage: https://help.elevaite365.com/
 
 nav:
   - Overview: index.md
