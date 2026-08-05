@@ -135,6 +135,7 @@ Seven habits that keep a suite trustworthy.
 - <a href="agreements/">Agreements</a>: support terms, onboarding SOW and partner terms
 - [External API](api/index.md): trigger runs from CI/CD
 - [Azure DevOps pipelines](integrations/azure-devops.md): run scenarios from a pipeline
+- [Azure DevOps Test Plans](integrations/azure-devops-test-plans.md): push results into Test Plans
 - [Glossary](help/glossary.md): plain-English definitions
 
 </div>

@@ -116,3 +116,4 @@ nav:
       - Endpoint reference: api/endpoints.md
       - Integration flow: api/integration.md
       - Azure DevOps pipelines: integrations/azure-devops.md
+      - Azure DevOps Test Plans: integrations/azure-devops-test-plans.md

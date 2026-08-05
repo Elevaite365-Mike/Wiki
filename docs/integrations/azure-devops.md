@@ -11,6 +11,9 @@ The integration is three steps:
 !!! info "Two ways to reach elevaite365 from CI/CD"
     This extension is the quickest route for Azure DevOps. If you are on a different CI system, or want more control over the flow, use the [External API](../api/index.md) directly.
 
+!!! tip "Want results in Test Plans?"
+    This page gets scenarios *running* from a pipeline. To push pass and fail results back into Azure DevOps **Test Plans**, also set up the [Test Plans integration](azure-devops-test-plans.md).
+
 ## 1. Install the extension
 
 1. Open the [elevaite365 Scenario Execution extension](https://marketplace.visualstudio.com/items?itemName=elevaite365-official.elevaite365-scenario-execution) on the Visual Studio Marketplace.
@@ -106,6 +109,8 @@ You need an elevaite365 API key for DevOps. If one already exists, skip to [expo
 
 When the pipeline runs, a **Test Plan** is created in Azure DevOps with the results.
 
+For control over which plan and suite results land in, and over how tests map to Test Cases, configure the [Test Plans integration](azure-devops-test-plans.md).
+
 ## Keeping the pipeline current
 
 !!! warning "Re-export after changing scenarios"
@@ -114,4 +119,5 @@ When the pipeline runs, a **Test Plan** is created in Azure DevOps with the resu
 ## Related
 
 - [Create scenarios](../quickstart/create-scenarios.md), building the scenarios you export
+- [Azure DevOps Test Plans](azure-devops-test-plans.md), pushing results back into Test Plans
 - [External API](../api/index.md), the underlying API the extension calls

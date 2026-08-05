@@ -7,7 +7,7 @@ Key points:
 - Scenarios can contain multiple tests from any environment or application
 - They're most useful for grouping cross-application tests, like integration tests
 - Scenarios can be scheduled
-- Scenarios can be connected to [Azure DevOps](../integrations/azure-devops.md) for execution and results
+- Scenarios can be connected to Azure DevOps for [execution](../integrations/azure-devops.md) and [results](../integrations/azure-devops-test-plans.md)
 
 ## Create a scenario
 
