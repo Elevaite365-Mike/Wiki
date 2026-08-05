@@ -87,6 +87,7 @@ nav:
       - Adding environments: quickstart/adding-environments.md
       - IT access requirements: quickstart/access-requirements.md
       - Setup test users: quickstart/setup-test-users.md
+      - MFA setup: quickstart/mfa-setup.md
       - Create components: quickstart/create-components.md
       - Create scenarios: quickstart/create-scenarios.md
   - Help:
@@ -110,3 +111,8 @@ nav:
       - Loop: commands/loop.md
       - D365 Finance & Operations: commands/d365-finance-operations.md
       - D365 Business Central: commands/d365-business-central.md
+  - Integrations:
+      - External API: api/index.md
+      - Endpoint reference: api/endpoints.md
+      - Integration flow: api/integration.md
+      - Azure DevOps pipelines: integrations/azure-devops.md

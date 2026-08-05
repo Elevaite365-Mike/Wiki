@@ -7,7 +7,7 @@ Key points:
 - Scenarios can contain multiple tests from any environment or application
 - They're most useful for grouping cross-application tests, like integration tests
 - Scenarios can be scheduled
-- Scenarios can be connected to Azure DevOps for execution and results
+- Scenarios can be connected to [Azure DevOps](../integrations/azure-devops.md) for execution and results
 
 ## Create a scenario
 
@@ -58,11 +58,14 @@ The toolbar lets you:
 - Refresh the list
 - Schedule
 - Run (useful for running multiple scenarios in sequence)
-- Export for Azure DevOps integration
+- Export for [Azure DevOps integration](../integrations/azure-devops.md)
 
 <!-- TODO screenshot: One-off and recurring schedule options (was create-scenarios-recurring.png; the source file is private on the old wiki) -->
 
 When you schedule a scenario you can set it as **one-off** or **recurring**. Both options let you choose a time and timezone.
+
+!!! tip "Trigger scenarios from your own systems"
+    Scenarios can also be run through the [External API](../api/index.md), which is how CI/CD pipelines and partner integrations kick off a run and collect results.
 
 !!! tip "Use recurring for end-to-end tests"
     Recurring is highly recommended for your full end-to-end tests. It means you can just come in and check results every now and then to confirm your tests are still working.

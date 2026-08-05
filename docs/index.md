@@ -40,6 +40,14 @@ New here? The quickstart takes you from an empty instance to a scheduled test.
 
     [:octicons-arrow-right-24: Command reference](commands/index.md)
 
+-   :material-api:{ .lg .middle } **Integrations**
+
+    ---
+
+    Trigger scenarios from Azure DevOps or your own systems, and collect the results.
+
+    [:octicons-arrow-right-24: External API](api/index.md) · [Azure DevOps](integrations/azure-devops.md)
+
 -   :material-lifebuoy:{ .lg .middle } **Help**
 
     ---
@@ -125,6 +133,8 @@ Seven habits that keep a suite trustworthy.
 - [Create scenarios](quickstart/create-scenarios.md): group and schedule tests
 - [Video library](help/videos.md): every demo, mapped to its article
 - <a href="agreements/">Agreements</a>: support terms, onboarding SOW and partner terms
+- [External API](api/index.md): trigger runs from CI/CD
+- [Azure DevOps pipelines](integrations/azure-devops.md): run scenarios from a pipeline
 - [Glossary](help/glossary.md): plain-English definitions
 
 </div>

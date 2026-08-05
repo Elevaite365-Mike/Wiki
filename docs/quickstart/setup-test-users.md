@@ -19,7 +19,7 @@ A test user is a dummy user set up for the automation to use when logging in to 
 | **Email** | The test account's sign-in address |
 | **Password** | Not readable in the dialog once submitted |
 | **Description** | Use this as a label |
-| **Secret Key** | The secret key provided during Microsoft login, used when setting up MFA. elevaite365 uses its own TOTP logic, so **software OATH/TOTP must be enabled** for the account, see [IT access requirements](access-requirements.md#step-2-accounts) |
+| **Secret Key** | The secret key provided during Microsoft login, used when setting up MFA. elevaite365 uses its own TOTP logic, so **software OATH/TOTP must be enabled** for the account, see [IT access requirements](access-requirements.md#step-2-accounts). Walkthrough: [MFA setup](mfa-setup.md) |
 
 Once submitted, your new user displays in the table.
 

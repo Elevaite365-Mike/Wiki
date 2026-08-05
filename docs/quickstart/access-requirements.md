@@ -46,7 +46,7 @@ Create **3 dedicated test user accounts**. These are automation accounts, not re
 !!! danger "Never use a real person's account"
     Test users must be dedicated accounts. A real person's credentials in an automated test means locked accounts, unattributable activity and an audit problem.
 
-Once the accounts exist, add them in the product, see [Setup test users](setup-test-users.md).
+Once the accounts exist, add them in the product, see [Setup test users](setup-test-users.md). If you are using MFA, follow [MFA setup](mfa-setup.md) to connect each account.
 
 ## Step 3 · Final IT checklist
 

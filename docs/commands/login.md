@@ -21,7 +21,7 @@
 !!! note "Secret key required"
     MFA login relies on the **Secret Key** captured when the test user was added. See [Setup test users](../quickstart/setup-test-users.md).
 
-    elevaite365 generates the code with its own TOTP service, so the account needs **software OATH/TOTP** enabled in your tenant, see [IT access requirements](../quickstart/access-requirements.md).
+    elevaite365 generates the code with its own TOTP service, so the account needs **software OATH/TOTP** enabled in your tenant, see [IT access requirements](../quickstart/access-requirements.md). Connecting an account is covered in [MFA setup](../quickstart/mfa-setup.md).
 
 ## Get MFA Code
 
