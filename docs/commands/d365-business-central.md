@@ -18,6 +18,9 @@ Commands available when your application is Dynamics 365 Business Central.
 !!! warning "Check your field selection"
     When setting the field, make sure the blue highlight covers the checkbox or radio itself.
 
+!!! info "Finance & Operations equivalent"
+    F&O has its own [Toggle Checkbox](d365-finance-operations.md#toggle-checkbox) command.
+
 ## Expand Section
 
 **Purpose**: expand a section in D365 Business Central. If the section is already expanded, the automation does nothing.

@@ -98,6 +98,7 @@ nav:
   - Test cases:
       - Create a test script: tests/create-test-script.md
       - Using the test recorder: tests/test-recorder.md
+      - Conditionals: tests/conditionals.md
       - Templates: tests/templates.md
   - Commands:
       - Overview: commands/index.md
@@ -106,6 +107,11 @@ nav:
       - Verification: commands/verification.md
       - Variables: commands/variables.md
       - Navigation & waiting: commands/navigation.md
+      - Windows & tabs: commands/windows-tabs.md
+      - Browser dialogs: commands/dialogs.md
+      - API Request: commands/api-request.md
+      - Comments & screenshots: commands/reporting.md
+      - Pass & Fail: commands/pass-fail.md
       - Microsoft login: commands/login.md
       - AI commands: commands/ai.md
       - Loop: commands/loop.md

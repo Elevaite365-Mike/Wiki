@@ -73,6 +73,16 @@ A full list is available under the `KeyboardEvent.Key` column in the [MDN key va
 
 `Shift`, `Control`, `Alt`, `Meta`, `ShiftLeft`, `ControlOrMeta`
 
+Combine a modifier with a key using `+`:
+
+```text
+Control+A
+Shift+ArrowRight
+ControlOrMeta+S
+```
+
+Stack more than one modifier the same way, for example `Control+Shift+Tab`.
+
 !!! tip "ControlOrMeta"
     `ControlOrMeta` resolves to Control on Windows and Linux, and to Meta on macOS, so one step covers both.
 

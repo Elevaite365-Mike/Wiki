@@ -21,12 +21,30 @@ Commands are the building blocks of a test step. This section documents every co
 | [Catch Downloaded File](entering-data.md#catch-downloaded-file) | Save a downloaded file to a variable | Entering data |
 | [Verify](verification.md#verify) | Verify something on the page | Verification |
 | [Verify Field](verification.md#verify-field) | Check a field's state, then its value | Verification |
+| [Verify Variable](verification.md#verify-variable) | Check the value held in a variable | Verification |
 | [Verify Using AI](ai.md#verify-using-ai) | Natural-language evaluation of a screenshot | AI commands |
 | [Set Variable](variables.md#set-variable) | Save a value from the page to a variable | Variables |
 | [Modify Variable](variables.md#modify-variable) | Transform a variable's value | Variables |
+| [Extract Value](variables.md#extract-value) | Pull a single value out of JSON, XML or a spreadsheet | Variables |
+| [Update Value](variables.md#update-value) | Replace a single value inside JSON or XML | Variables |
 | [Navigate](navigation.md#navigate) | Go to a new URL | Navigation & waiting |
+| [Navigate (Advanced)](navigation.md#navigate-advanced) | Go to a URL with NTLM auth and a custom timeout | Navigation & waiting |
 | [Set URL Query Param](navigation.md#set-url-query-param) | Update a parameter in the URL | Navigation & waiting |
+| [Refresh Page](navigation.md#refresh-page) | Reload the current page | Navigation & waiting |
 | [Wait](navigation.md#wait) | Wait for a fixed period | Navigation & waiting |
+| [Maximise Window](windows-tabs.md#maximise-window) | Maximise the current window | Windows & tabs |
+| [Zoom Window](windows-tabs.md#zoom-window) | Zoom the window in or out | Windows & tabs |
+| [Close Tab](windows-tabs.md#close-tab) | Close the active browser tab | Windows & tabs |
+| [Detect New Window/Tab](windows-tabs.md#detect-new-windowtab) | Focus a newly opened page | Windows & tabs |
+| [Switch Tab](windows-tabs.md#switch-tab) | Focus a specific window or tab | Windows & tabs |
+| [Close Page](windows-tabs.md#close-page) | Close a specific window or tab | Windows & tabs |
+| [API Request](api-request.md) | Send an HTTP request and save the response | API Request |
+| [Comment](reporting.md#comment) | Add free text to a test and its reports | Comments & screenshots |
+| [Take a Screenshot](reporting.md#take-a-screenshot) | Capture a full-screen image into the results | Comments & screenshots |
+| [Pass](pass-fail.md#pass) | Stop the test and mark it passed | Pass & Fail |
+| [Fail](pass-fail.md#fail) | Stop the test with a custom error | Pass & Fail |
+| [Accept Dialog](dialogs.md#accept-dialog) | Accept browser alerts and confirms | Browser dialogs |
+| [Dismiss Dialog](dialogs.md#dismiss-dialog) | Cancel browser alerts and confirms | Browser dialogs |
 | [Microsoft Login](login.md#microsoft-login) | Log in to a Microsoft account | Microsoft login |
 | [Microsoft Login With MFA](login.md#microsoft-login-with-mfa) | Log in with MFA | Microsoft login |
 | [Get MFA Code](login.md#get-mfa-code) | Fill a field with a user's current MFA code | Microsoft login |
@@ -38,8 +56,10 @@ Commands are the building blocks of a test step. This section documents every co
 
 | Command | Application | Page |
 | --- | --- | --- |
+| [Change Company](d365-finance-operations.md#change-company) | Finance & Operations | D365 F&O |
 | [Column Filter](d365-finance-operations.md#column-filter) | Finance & Operations | D365 F&O |
 | [Expand or Collapse Section](d365-finance-operations.md#expand-or-collapse-section) | Finance & Operations | D365 F&O |
+| [Toggle Checkbox (F&O)](d365-finance-operations.md#toggle-checkbox) | Finance & Operations | D365 F&O |
 | [Toggle Checkbox (BC)](d365-business-central.md#toggle-checkbox) | Business Central | D365 BC |
 | [Expand Section](d365-business-central.md#expand-section) | Business Central | D365 BC |
 | [Collapse Section](d365-business-central.md#collapse-section) | Business Central | D365 BC |

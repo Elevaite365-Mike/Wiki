@@ -4,14 +4,25 @@
 
 **Purpose**: a simple OpenAI / ChatGPT connector. Use it to generate unique test data, specific dates, and many other unique scenarios.
 
-!!! note "No page access"
-    The current version does not have access to the webpage. Its main purpose is responding to questions using supplied data.
-
 **Parameters:**
 
 - **Question**: the prompt you want to ask the AI. For example, *"What is the date of the first Friday of next month?"*
 - **Response format**: optional; specifies how the AI responds. For example, *"Respond only in date format dd/mm/yyyy with no additional information"*
 - **Variable**: where the output is saved
+
+### Skills
+
+By default the AI answers from the question alone. It cannot see the page. The **Skills** button on the question input changes that.
+
+Turn on the **screenshot** skill and the AI captures the screen at the moment the step runs, then answers using what is on it. Use it when the answer depends on something rendered in the test rather than something you can type into the prompt:
+
+- *"Calculate the line total from the PDF preview"*
+- *"Read the invoice number from the confirmation panel"*
+
+The answer still goes to the variable you nominate, so later steps can use it.
+
+!!! tip "Asking versus verifying"
+    Ask AI with the screenshot skill returns a value you can reuse. If you only need a pass or fail on what is on screen, use [Verify Using AI](#verify-using-ai) instead.
 
 ## Verify Using AI
 

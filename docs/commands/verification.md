@@ -105,5 +105,50 @@ Finally, enter the **value** you expect the field to meet for the selected condi
 
 The test passes only if the field's text contains the word *Pending*.
 
-!!! tip
-    Combine Verify Field with conditional logic to build validation steps that only proceed when UI conditions are met.
+!!! tip "Branching instead of failing"
+    Right-click a verify step and choose **Add conditional** to run one set of steps when the check passes and another when it does not. See [Conditionals](../tests/conditionals.md).
+
+---
+
+## Verify Variable
+
+The **Verify Variable** command works like [Verify Field](#verify-field), except it checks a saved variable rather than something on the page. Nothing needs to be visible for it to run.
+
+Use it to check a value you captured earlier, for example a total pulled out of a spreadsheet with [Set Variable](variables.md#set-variable), a reference built with [Modify Variable](variables.md#modify-variable), or an answer returned by [Ask AI](ai.md#ask-ai).
+
+### Parameters
+
+- **Variable**: the variable you want to check, picked from the variables available to the test
+- **Verification**: `should` or `should not`, followed by the condition
+- **Value**: what you expect. This can be a fixed string or another variable
+
+There is no visibility check. A variable either holds a value or it does not, so the command goes straight to the comparison.
+
+### Conditions
+
+The same set as Verify Field: **empty**, **contain**, **equal**, **start with**, **end with**, the four numeric comparisons, and **match regex**. See [Verification conditions](#verification-conditions) for what each one passes on.
+
+**Example**
+
+| Step | Setting |
+| --- | --- |
+| Variable | `Extract Value - Excel` |
+| Verification | `should` |
+| Condition | `equal` |
+| Value | `1250.00` |
+
+The test passes only if the value saved in that variable is exactly `1250.00`.
+
+### Advanced
+
+| Option | Effect |
+| --- | --- |
+| **Timeout (s)** | How long to wait before the check fails. Defaults to 15 seconds |
+| **Error message** | Optional. A custom error shown when the check fails |
+| **Continue on failure** | Records the failure and lets the test carry on |
+
+!!! tip "Continue on failure"
+    Useful when you want every check in a run reported, rather than the test stopping at the first one that breaks. Leave it off when later steps only make sense if this check passed.
+
+!!! tip "Comparing two variables"
+    Put a variable in the **Value** field to check one variable against another, such as a total read from the screen against a total read from a downloaded file.

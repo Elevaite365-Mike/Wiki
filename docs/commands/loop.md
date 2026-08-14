@@ -35,7 +35,9 @@ You can control the loop flow with:
 - **Skip**: move to the next iteration
 - **Break**: stop the loop entirely
 
-These are commonly used with conditionals, for example *"skip if field is empty"*.
+These are commonly used with [conditionals](../tests/conditionals.md), for example *"skip if field is empty"*: the verify branches, and one branch skips the row.
+
+Both belong to the loop. They do nothing in a conditional that is not inside one.
 
 ## For range
 
