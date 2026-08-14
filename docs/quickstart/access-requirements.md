@@ -14,7 +14,7 @@ Think of it as a short checklist for your IT team, so our virtual browsers can s
 | Step | What's needed |
 | --- | --- |
 | **1** | Allow our automation to sign in from our fixed IP addresses |
-| **2** | Create 3 dedicated D365 test user accounts for workflows and approvals |
+| **2** | Create dedicated D365 test user accounts (we recommend 3) |
 | **2a** | Exclude those test users from mobile phone number registration |
 | **3** | If you use MFA, configure it for app-based or TOTP-based methods (SMS and phone call are not needed) |
 
@@ -35,7 +35,12 @@ Your region matches the URL you sign in at, see [Setup your team](setup-your-tea
 
 ## Step 2 · Accounts
 
-Create **3 dedicated test user accounts**. These are automation accounts, not real employees, and they're used for workflows, approval chains and multi-user scenarios.
+Create dedicated test user accounts. These are automation accounts, not real employees, and they're used for workflows, approval chains and multi-user scenarios.
+
+**3 accounts is a recommendation, not a requirement.** There is no fixed number. Three works well because one account can stay as a permanent system administrator while the other two get their roles and permissions changed as each test requires. That way you are not editing the admin account to test a lower-privilege path, and you always have a known-good account to fall back on.
+
+!!! note "The 3 account example is specific to D365 Finance"
+    It reflects how roles and approval chains tend to be set up in Finance and Operations. Other products, or your own security model, may need fewer or more. Start with what your scenarios actually need.
 
 - MFA is **optional** for non-production automation accounts
 - If using MFA, it works with our in-house TOTP logic, not Microsoft Authenticator or a traditional MFA app
@@ -50,7 +55,7 @@ Once the accounts exist, add them in the product, see [Setup test users](setup-t
 
 ## Step 3 · Final IT checklist
 
-- [ ] Create 3 test user accounts
+- [ ] Create the test user accounts (3 recommended, not required)
 - [ ] Exclude them from phone number registration
 - [ ] If required, allowlist elevaite365 IPs for your region
 - [ ] MFA optional; if used, configure app or TOTP
