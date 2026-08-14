@@ -2,68 +2,142 @@
 
 Commands are the building blocks of a test step. This section documents every command, what it does and the parameters it accepts.
 
-## All commands
+The groups below match the ones in the **Add step** panel, so what you see in the product is what you look up here.
 
-| Command | Purpose | Page |
+## Not sure which one you need?
+
+| What you want to do | Command |
+| --- | --- |
+| Put a value in a field | [Fill](entering-data.md#fill), or [Type](entering-data.md#type) if the field reacts as you type |
+| Check the process worked | [Verify Field](verification.md#verify-field) |
+| Handle a step that only happens sometimes | A verify step with a [conditional](../tests/conditionals.md) |
+| Repeat steps for every row of a spreadsheet | [Loop](loop.md) |
+| Carry a value from one step to another | [Set variable](variables.md#set-variable) |
+| Deal with a popup | [Click](mouse-keyboard.md#click) for an in-app dialog, [Accept Dialog](dialogs.md#accept-dialog) for a browser alert |
+| Wait for something slow | Raise the [timeout](#timeout) on the next command rather than adding a [Wait](navigation.md#wait) |
+
+## Mouse
+
+| Command | Purpose |
+| --- | --- |
+| [Click](mouse-keyboard.md#click) | Click a field or button |
+| [Right Click](mouse-keyboard.md#right-click) | Right-click to open a context menu |
+| [Mouse Hover](mouse-keyboard.md#mouse-hover) | Hover a field to reveal what shows on hover |
+| [Move Mouse](mouse-keyboard.md#move-mouse) | Move the pointer to exact coordinates |
+| [Scroll Page](mouse-keyboard.md#scroll-page) | Scroll the page vertically or horizontally |
+| [Drag and Drop](mouse-keyboard.md#drag-and-drop) | Drag an element onto another |
+
+## Keyboard
+
+| Command | Purpose |
+| --- | --- |
+| [Press Key](mouse-keyboard.md#press-key) | Press a key or shortcut, such as Enter or `Control+A` |
+
+## Entering data
+
+| Command | Purpose |
+| --- | --- |
+| [Fill](entering-data.md#fill) | Paste a value straight into a field |
+| [Type](entering-data.md#type) | Type a value one character at a time |
+| [Select Options](entering-data.md#select-options) | Choose one or more options from a dropdown |
+
+## Files
+
+| Command | Purpose |
+| --- | --- |
+| [Upload File](entering-data.md#upload-file) | Upload a file held in a variable |
+| [Catch Downloaded File](entering-data.md#catch-downloaded-file) | Save a file the test downloads to a variable |
+
+## Verification
+
+| Command | Purpose |
+| --- | --- |
+| [Verify](verification.md#verify) | Check a field's state, text, value or attributes |
+| [Verify Field](verification.md#verify-field) | Check a field is available, then check its value |
+| [Verify Variable](verification.md#verify-variable) | Check the value a variable is holding |
+
+## Variables
+
+| Command | Purpose |
+| --- | --- |
+| [Set variable](variables.md#set-variable) | Save a value from the page to a variable |
+| [Modify variable](variables.md#modify-variable) | Transform a variable, such as trim, slice or increment |
+| [Extract Value](variables.md#extract-value) | Read one value out of JSON, XML, Excel or CSV |
+| [Update Value](variables.md#update-value) | Write one value into JSON, XML, Excel or CSV |
+
+## Navigation & waiting
+
+| Command | Purpose |
+| --- | --- |
+| [Navigate](navigation.md#navigate) | Go to a URL |
+| [Navigate (Advanced)](navigation.md#navigate-advanced) | Go to a URL that needs NTLM sign-in or a longer wait |
+| [Set URL Query Param](navigation.md#set-url-query-param) | Change one parameter in the current URL |
+| [Refresh Page](navigation.md#refresh-page) | Reload the current page |
+| [Wait](navigation.md#wait) | Pause for a fixed number of milliseconds |
+
+## Window control
+
+| Command | Purpose |
+| --- | --- |
+| [Maximise Window](windows-tabs.md#maximise-window) | Maximise the window in focus |
+| [Zoom Window](windows-tabs.md#zoom-window) | Zoom the window to a percentage |
+
+## Tabs
+
+| Command | Purpose |
+| --- | --- |
+| [Close Tab](windows-tabs.md#close-tab) | Close the active tab and fall back to the previous one |
+| [Detect New Window/Tab](windows-tabs.md#detect-new-windowtab) | Follow the test's focus onto a page that just opened |
+| [Switch Tab](windows-tabs.md#switch-tab) | Focus a specific window or tab |
+| [Close Page](windows-tabs.md#close-page) | Close a specific window or tab by identifier |
+
+## Login
+
+| Command | Purpose |
+| --- | --- |
+| [Microsoft Login](login.md#microsoft-login) | Sign in with a Microsoft account |
+| [Microsoft Login With MFA](login.md#microsoft-login-with-mfa) | Sign in with a Microsoft account and pass MFA |
+| [Get MFA Code](login.md#get-mfa-code) | Put a test user's current MFA code into a field |
+
+## AI
+
+| Command | Purpose |
+| --- | --- |
+| [Ask AI](ai.md#ask-ai) | Ask a question and save the answer to a variable |
+| [Verify using AI](ai.md#verify-using-ai) | Judge a screenshot against a plain-English expectation |
+| [AI Actions](ai.md#ai-actions) | Hand the browser to the AI to complete a described task |
+| [Click (Using Computer Vision)](ai.md#click-using-computer-vision) | Find and click a field using a reference image |
+
+!!! warning "Check what the AI did"
+    AI steps can behave differently from one run to the next. Follow one with a verification, so a wrong result fails the test rather than passing quietly.
+
+## Application-specific
+
+Available only when the test's application is that product.
+
+| Command | Application | Purpose |
 | --- | --- | --- |
-| [Click](mouse-keyboard.md#click) | Left-click somewhere on the page | Mouse & keyboard |
-| [Right Click](mouse-keyboard.md#right-click) | Right-click somewhere on the page | Mouse & keyboard |
-| [Click (Computer Vision)](ai.md#click-using-computer-vision) | Find and click a field from a reference image | AI commands |
-| [Mouse Hover](mouse-keyboard.md#mouse-hover) | Hover over an element | Mouse & keyboard |
-| [Move Mouse](mouse-keyboard.md#move-mouse) | Move the mouse to exact coordinates | Mouse & keyboard |
-| [Scroll Page](mouse-keyboard.md#scroll-page) | Scroll vertically or horizontally | Mouse & keyboard |
-| [Press Key](mouse-keyboard.md#press-key) | Simulate keyboard keys and shortcuts | Mouse & keyboard |
-| [Drag and Drop](mouse-keyboard.md#drag-and-drop) | Drag an element on the page | Mouse & keyboard |
-| [Fill](entering-data.md#fill) | Paste a value into a field | Entering data |
-| [Type](entering-data.md#type) | Type a value character by character | Entering data |
-| [Select Options](entering-data.md#select-options) | Select dropdown or multi-select values | Entering data |
-| [Upload File](entering-data.md#upload-file) | Upload a file from a variable | Entering data |
-| [Catch Downloaded File](entering-data.md#catch-downloaded-file) | Save a downloaded file to a variable | Entering data |
-| [Verify](verification.md#verify) | Verify something on the page | Verification |
-| [Verify Field](verification.md#verify-field) | Check a field's state, then its value | Verification |
-| [Verify Variable](verification.md#verify-variable) | Check the value held in a variable | Verification |
-| [Verify Using AI](ai.md#verify-using-ai) | Natural-language evaluation of a screenshot | AI commands |
-| [Set Variable](variables.md#set-variable) | Save a value from the page to a variable | Variables |
-| [Modify Variable](variables.md#modify-variable) | Transform a variable's value | Variables |
-| [Extract Value](variables.md#extract-value) | Pull a single value out of JSON, XML or a spreadsheet | Variables |
-| [Update Value](variables.md#update-value) | Replace a single value inside JSON or XML | Variables |
-| [Navigate](navigation.md#navigate) | Go to a new URL | Navigation & waiting |
-| [Navigate (Advanced)](navigation.md#navigate-advanced) | Go to a URL with NTLM auth and a custom timeout | Navigation & waiting |
-| [Set URL Query Param](navigation.md#set-url-query-param) | Update a parameter in the URL | Navigation & waiting |
-| [Refresh Page](navigation.md#refresh-page) | Reload the current page | Navigation & waiting |
-| [Wait](navigation.md#wait) | Wait for a fixed period | Navigation & waiting |
-| [Maximise Window](windows-tabs.md#maximise-window) | Maximise the current window | Windows & tabs |
-| [Zoom Window](windows-tabs.md#zoom-window) | Zoom the window in or out | Windows & tabs |
-| [Close Tab](windows-tabs.md#close-tab) | Close the active browser tab | Windows & tabs |
-| [Detect New Window/Tab](windows-tabs.md#detect-new-windowtab) | Focus a newly opened page | Windows & tabs |
-| [Switch Tab](windows-tabs.md#switch-tab) | Focus a specific window or tab | Windows & tabs |
-| [Close Page](windows-tabs.md#close-page) | Close a specific window or tab | Windows & tabs |
-| [API Request](api-request.md) | Send an HTTP request and save the response | API Request |
-| [Comment](reporting.md#comment) | Add free text to a test and its reports | Comments & screenshots |
-| [Take a Screenshot](reporting.md#take-a-screenshot) | Capture a full-screen image into the results | Comments & screenshots |
-| [Pass](pass-fail.md#pass) | Stop the test and mark it passed | Pass & Fail |
-| [Fail](pass-fail.md#fail) | Stop the test with a custom error | Pass & Fail |
-| [Accept Dialog](dialogs.md#accept-dialog) | Accept browser alerts and confirms | Browser dialogs |
-| [Dismiss Dialog](dialogs.md#dismiss-dialog) | Cancel browser alerts and confirms | Browser dialogs |
-| [Microsoft Login](login.md#microsoft-login) | Log in to a Microsoft account | Microsoft login |
-| [Microsoft Login With MFA](login.md#microsoft-login-with-mfa) | Log in with MFA | Microsoft login |
-| [Get MFA Code](login.md#get-mfa-code) | Fill a field with a user's current MFA code | Microsoft login |
-| [Ask AI](ai.md#ask-ai) | Ask a question and save the answer to a variable | AI commands |
-| [AI Actions](ai.md#ai-actions) | Let the AI perform steps from natural language | AI commands |
-| [Loop](loop.md) | Repeat steps over fields, a range, or spreadsheet rows | Loop |
+| [Change Company](d365-finance-operations.md#change-company) | Finance & Operations | Switch to another legal entity by company code |
+| [Column Filter](d365-finance-operations.md#column-filter) | Finance & Operations | Filter a grid column |
+| [Expand or Collapse Section](d365-finance-operations.md#expand-or-collapse-section) | Finance & Operations | Open or close a section |
+| [Toggle Checkbox](d365-finance-operations.md#toggle-checkbox) | Finance & Operations | Set a checkbox or radio to the state you want |
+| [Toggle Checkbox](d365-business-central.md#toggle-checkbox) | Business Central | Set a checkbox or radio to the state you want |
+| [Expand Section](d365-business-central.md#expand-section) | Business Central | Open a collapsed section |
+| [Collapse Section](d365-business-central.md#collapse-section) | Business Central | Close an expanded section |
+| [Verify Checkbox](d365-business-central.md#verify-checkbox) | Business Central | Check whether a checkbox is enabled or disabled |
 
-### Application-specific
+## Everything else
 
-| Command | Application | Page |
-| --- | --- | --- |
-| [Change Company](d365-finance-operations.md#change-company) | Finance & Operations | D365 F&O |
-| [Column Filter](d365-finance-operations.md#column-filter) | Finance & Operations | D365 F&O |
-| [Expand or Collapse Section](d365-finance-operations.md#expand-or-collapse-section) | Finance & Operations | D365 F&O |
-| [Toggle Checkbox (F&O)](d365-finance-operations.md#toggle-checkbox) | Finance & Operations | D365 F&O |
-| [Toggle Checkbox (BC)](d365-business-central.md#toggle-checkbox) | Business Central | D365 BC |
-| [Expand Section](d365-business-central.md#expand-section) | Business Central | D365 BC |
-| [Collapse Section](d365-business-central.md#collapse-section) | Business Central | D365 BC |
-| [Verify Checkbox](d365-business-central.md#verify-checkbox) | Business Central | D365 BC |
+| Command | Purpose |
+| --- | --- |
+| [Loop](loop.md) | Repeat steps over fields, a range, or spreadsheet rows |
+| [API Request](api-request.md) | Call an endpoint and save the response |
+| [Accept Dialog](dialogs.md#accept-dialog) | Answer OK to native browser alerts from here on |
+| [Dismiss Dialog](dialogs.md#dismiss-dialog) | Answer Cancel to native browser alerts from here on |
+| [Comment](reporting.md#comment) | Add a note to the test and its reports |
+| [Take a Screenshot](reporting.md#take-a-screenshot) | Capture a full-screen image into the results |
+| [Pass](pass-fail.md#pass) | End the test early and mark it passed |
+| [Fail](pass-fail.md#fail) | End the test with a custom error |
 
 ## Common advanced options
 
@@ -86,4 +160,4 @@ Sometimes required to override an event that is blocking the click.
 The maximum time the test will wait for the field to be visible before failing the test.
 
 !!! info "Which commands have these?"
-    Click position, click count and force apply to the click-style commands: [Click](mouse-keyboard.md#click), [Right Click](mouse-keyboard.md#right-click), [Select Options](entering-data.md#select-options), [Click (Computer Vision)](ai.md#click-using-computer-vision) and [Column Filter](d365-finance-operations.md#column-filter). Timeout applies more broadly, including [Fill](entering-data.md#fill), [Type](entering-data.md#type) and [Verify](verification.md#verify).
+    Click position, click count and force apply to the click-style commands: [Click](mouse-keyboard.md#click), [Right Click](mouse-keyboard.md#right-click), [Select Options](entering-data.md#select-options), [Click (Using Computer Vision)](ai.md#click-using-computer-vision) and [Column Filter](d365-finance-operations.md#column-filter). Timeout applies more broadly, including [Fill](entering-data.md#fill), [Type](entering-data.md#type) and [Verify](verification.md#verify).

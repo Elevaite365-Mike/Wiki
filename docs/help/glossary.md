@@ -9,6 +9,9 @@
 **Component**
 : A reusable group of steps that can be dropped into any test. Tests always run the latest version of a component. See [Create components](../quickstart/create-components.md).
 
+**Conditional**
+: A branch added to a verify step, so the test runs one set of steps when the check passes and another when it does not, instead of failing. See [Conditionals](../tests/conditionals.md).
+
 **Environment**
 : A single deployment of an application, defined by an ID and a base URL. One application can have many environments, `UAT`, `Sandbox`, and so on. See [Adding environments](../quickstart/adding-environments.md).
 

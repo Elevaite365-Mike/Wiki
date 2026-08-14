@@ -36,7 +36,7 @@ New here? The quickstart takes you from an empty instance to a scheduled test.
 
     ---
 
-    Every command and its parameters: clicking, entering data, verifying, variables, loops and the AI commands.
+    Every command and its parameters, grouped the way the Add step panel groups them. Start with "not sure which one you need" if you are new.
 
     [:octicons-arrow-right-24: Command reference](commands/index.md)
 
@@ -130,6 +130,7 @@ Seven habits that keep a suite trustworthy.
 - [Setup test users](quickstart/setup-test-users.md): logins the automation can use
 - [Verify & Verify Field](commands/verification.md): every check available
 - [Loop](commands/loop.md): fields, ranges and data-driven runs
+- [Conditionals](tests/conditionals.md): branch a test instead of failing it
 - [Create scenarios](quickstart/create-scenarios.md): group and schedule tests
 - [Video library](help/videos.md): every demo, mapped to its article
 - <a href="agreements/">Agreements</a>: support terms, onboarding SOW and partner terms

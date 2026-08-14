@@ -412,6 +412,17 @@
   letter-spacing: 0.08em;
 }
 
+/* The sidebar title is sticky. Material sizes it to the text, so section
+   labels scrolling underneath show through the gap. Pad it out and give it
+   the page background so it covers what passes behind. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav--primary > .md-nav__title {
+    background: var(--md-default-bg-color);
+    padding: 0.6rem 0 0.5rem;
+    margin-top: -0.6rem;
+  }
+}
+
 .md-nav__link--active,
 .md-nav__link:focus,
 .md-nav__link:hover,
