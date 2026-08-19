@@ -125,6 +125,7 @@ Available only when the test's application is that product.
 | [Expand Section](d365-business-central.md#expand-section) | Business Central | Open a collapsed section |
 | [Collapse Section](d365-business-central.md#collapse-section) | Business Central | Close an expanded section |
 | [Verify Checkbox](d365-business-central.md#verify-checkbox) | Business Central | Check whether a checkbox is enabled or disabled |
+| [Change View](d365-project-operations.md#change-view) | Project Operations | Switch the view dropdown at the top left of the page |
 
 ## Everything else
 

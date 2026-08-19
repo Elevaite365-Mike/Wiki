@@ -117,6 +117,7 @@ nav:
       - Loop: commands/loop.md
       - D365 Finance & Operations: commands/d365-finance-operations.md
       - D365 Business Central: commands/d365-business-central.md
+      - D365 Project Operations: commands/d365-project-operations.md
   - Integrations:
       - External API: api/index.md
       - Endpoint reference: api/endpoints.md
