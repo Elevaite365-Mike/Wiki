@@ -52,7 +52,6 @@ When something goes wrong, all endpoints return a consistent error structure:
 | `400` | Invalid request | Request body format and required fields |
 | `401` | Invalid API key | The `X-API-Key` header is present and correct |
 | `404` | Not found | The id is valid for your account, and the run has produced results |
-| `409` | Conflict | Only from [assign a Test Case id](endpoints.md#assign-a-test-case-id): the test is not `TCNEW - ` prefixed, or the id is taken |
 | `500` | Server error | Retry; contact support if the issue persists |
 
 A `404` on status, JUnit or artifacts does not always mean a bad id. It also comes back when the execution is real but has not produced that output yet, so treat it as "not ready" while you are still polling.
