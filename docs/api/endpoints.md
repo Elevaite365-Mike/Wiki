@@ -19,26 +19,8 @@ Every path below is relative to your regional base URL, and every request needs 
 | `GET` | [`/results-scenario/{execution_id}/junit/`](#get-junit-results) | Get JUnit result URLs |
 | `POST` | [`/results-scenario/artifacts/`](#get-scenario-artifacts) | Get the full artifact set |
 
-## Try it from this page
-
-Each endpoint below has a **Try it** panel that builds the request against your own instance, sends it, and shows the response.
-
-Open any panel and it asks for your region and API key first, then whatever that endpoint needs. Type the key once and the other panels on the page pick it up, so you only enter it at the endpoint you happened to open. **Clear** removes it from all of them.
-
-!!! warning "These are real calls against your instance"
-    Nothing here is a sandbox. Running a scenario schedules an actual test run, and everything you send is recorded against your account.
-
-!!! danger "Use a key you can rotate"
-    Your key is held in the browser tab, sent only to the region you picked, and dropped when you clear the field or leave the page. It is never stored and never sent to this help site. Even so, do not paste a production key into a browser on a shared or unmanaged machine, and rotate any key you have typed into a page you do not control.
-
-!!! info "Sending from the browser needs the API to allow it"
-    A browser will only send a cross-origin request when the API says the origin is allowed, and today the External API allows browser calls from Azure DevOps only. Until this site is added to that list, **Send request** cannot complete and the panel falls back to **Show as curl**.
-
-    The curl command is the same request, built from what you typed. Run it from a terminal, and read the key from an environment variable rather than pasting it into your shell history:
-
-    ```bash
-    read -rs ELEVAITE365_API_KEY && export ELEVAITE365_API_KEY
-    ```
+<!-- Try it console disabled. The section that documented it, and the assets
+     in mkdocs.yml, are restored together. See git history for the full text. -->
 
 ## List scenarios
 

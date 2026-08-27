@@ -23,7 +23,7 @@ It is designed for CI/CD pipelines, partner integrations, automated testing work
 
     ---
 
-    Every endpoint with request and response bodies, each with a Try it panel.
+    Every endpoint with its request and response bodies.
 
     [:octicons-arrow-right-24: Endpoint reference](endpoints.md)
 
@@ -66,8 +66,6 @@ X-API-Key: <your-api-key>
     Treat it like a password. Do not embed it in client-side code, and do not share it outside your integration team.
 
 To request an API key, contact your elevaite365 representative.
-
-Once you have one, you can call any endpoint straight from the [endpoint reference](endpoints.md#try-it-from-this-page). You paste the key into the page yourself, it goes only to your own instance, and nothing is stored.
 
 ## Core concepts
 
