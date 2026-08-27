@@ -44,6 +44,7 @@ Your API host is not the host you sign in to, and a key issued in one region doe
 | `GET` | [`/results-scenario/{execution_id}/status/`](#check-execution-status) | Check execution status |
 | `GET` | [`/results-scenario/{execution_id}/junit/`](#get-junit-results) | Get JUnit result URLs |
 | `POST` | [`/results-scenario/artifacts/`](#get-scenario-artifacts) | Get the full artifact set |
+| `GET` | [`/results-scenario/{execution_id}/report/`](#get-a-step-level-report) | Get per-step results for every test |
 
 <!-- Try it console disabled. The section that documented it, and the assets
      in mkdocs.yml, are restored together. See git history for the full text. -->
@@ -366,6 +367,113 @@ Returns the complete set of artifacts for every test in the execution, the riche
      data-method="POST"
      data-path="/results-scenario/artifacts/"
      data-params="execution_id:body:Execution ID:65f2a1b3c4d5e6f7g8h9i0j1">
+</div>
+
+## Get a step-level report
+
+```text
+GET /results-scenario/{execution_id}/report/
+X-API-Key: <your-api-key>
+```
+
+Returns the same per-test artifact links as [the artifacts endpoint](#get-scenario-artifacts), and adds what happened inside each test: every step with its outcome, which step failed first, the error it logged, and how long the test took.
+
+Use it when you need to show why a test failed rather than just that it failed. If you only need download links, stay on `/artifacts/`, which is cheaper.
+
+**Query parameters**
+
+| Parameter | Description |
+| --- | --- |
+| `limit` | Page size, 1 to 500, default 100 |
+| `offset` | Skip this many results, default 0 |
+
+**Response (200 OK)**
+
+```json
+{
+  "execution_id": "65f2a1b3c4d5e6f7g8h9i0j1",
+  "scenario_id": "65f2a1b3c4d5e6f7g8h9i0j1",
+  "scenario_name": "Order To Cash",
+  "status": "completed",
+  "started_at": "2025-03-27T08:13:00Z",
+  "completed_at": "2025-03-27T08:41:00Z",
+  "results": [
+    {
+      "result_id": "65f2a1b3c4d5e6f7g8h9i0j1",
+      "test_id": "65f2a1b3c4d5e6f7g8h9i0j1",
+      "test_name": "Create sales order",
+      "status": "failed",
+      "duration_ms": 48200,
+      "started_at": "2025-03-27T08:13:04Z",
+      "completed_at": "2025-03-27T08:13:52Z",
+      "steps": [
+        {
+          "index": 0,
+          "action": "click",
+          "target": "Submit button",
+          "status": "passed",
+          "error": null,
+          "screenshot_url": "https://.../step1.png"
+        }
+      ],
+      "failed_step_index": 4,
+      "error_message": "Element not found",
+      "error_stack": null,
+      "video_url": "https://.../video.mp4",
+      "video_size_bytes": null,
+      "junit_url": "https://.../result.xml",
+      "pdf_url": "https://.../report.pdf"
+    }
+  ],
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "total": 235,
+    "has_more": true
+  }
+}
+```
+
+**Finding the failure**
+
+| Field | Meaning |
+| --- | --- |
+| `failed_step_index` | Zero-based index into `steps` of the first step that failed. Null when the test passed |
+| `error_message` | Last log entry from that step, which is usually the most useful line to surface |
+| `duration_ms` | How long the test took. Null when it did not finish |
+
+**Step fields**
+
+| Field | Meaning |
+| --- | --- |
+| `index` | Zero-based position of the step within the test |
+| `action` | What the step did, for example `click`, `fill` or `navigate`. Empty when unknown |
+| `target` | The element or label the step acted on. Empty when unknown |
+| `status` | `passed`, `failed`, `skipped`, or `not-run` when the underlying status was not recognised |
+| `error` | Last log entry for the step. Null when it logged nothing |
+| `screenshot_url` | Signed link to the screenshot taken after the step |
+
+**Per-test status values**
+
+Results on this endpoint report the outcome of a finished test, so the values differ from the lifecycle statuses used elsewhere on this page.
+
+| Status | Meaning |
+| --- | --- |
+| `passed` | Every step succeeded |
+| `failed` | At least one step failed. See `failed_step_index` |
+| `skip` | The test was skipped in this execution |
+
+!!! note "Fields that are always null"
+    `error_stack` and `video_size_bytes` are reserved and always come back null. `screenshot_url` is null on a failed step, and on any step where no screenshot was captured, so a failed test shows you the state before the failure rather than after it.
+
+**Paging**
+
+`pagination.has_more` tells you whether another page exists. Increase `offset` by `limit` until it is false. Large scenarios can exceed the 500 maximum, so do not assume one call returns everything.
+
+<div data-tryit
+     data-method="GET"
+     data-path="/results-scenario/{execution_id}/report/"
+     data-params="execution_id:path:Execution ID:65f2a1b3c4d5e6f7g8h9i0j1,?limit:query:Limit:100,?offset:query:Offset:0">
 </div>
 
 ---
