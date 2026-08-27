@@ -15,7 +15,7 @@ It is designed for CI/CD pipelines, partner integrations, automated testing work
 
     ---
 
-    Base URL, authentication and how to get a key. Start here.
+    Regional base URLs, the API key header every endpoint needs, and how to get a key. Start here.
 
     [:octicons-arrow-right-24: Below](#getting-started)
 
@@ -56,16 +56,20 @@ Paths in this documentation are written relative to that base, so `/scenarios/` 
 
 ### Authentication
 
-Every request must include your API key in the request header:
+Every endpoint requires an API key. There is no anonymous access, and no endpoint is exempt.
+
+Send the key in the `X-API-Key` header on every request:
 
 ```text
 X-API-Key: <your-api-key>
 ```
 
-!!! danger "Keep your API key secure"
-    Treat it like a password. Do not embed it in client-side code, and do not share it outside your integration team.
+A key is scoped to one team. It sees that team's scenarios, executions and artifacts, and nothing else. Requests with a missing, malformed or unrecognised key are rejected with `401`, so treat a `401` as a credential problem rather than a permissions one.
 
-To request an API key, contact your elevaite365 representative.
+!!! danger "Keep your API key secure"
+    Treat it like a password. Do not embed it in client-side code, do not commit it, and do not share it outside your integration team. Read it from a secret store or an environment variable at run time, and make sure your error handling redacts the `X-API-Key` header before anything gets logged.
+
+To request an API key, or to rotate one you think has been exposed, contact your elevaite365 representative.
 
 ## Core concepts
 

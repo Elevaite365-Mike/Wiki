@@ -1,6 +1,15 @@
 # Endpoint reference
 
-Every path below is relative to your regional base URL, and every request needs the `X-API-Key` header. See [Getting started](index.md#getting-started).
+Every path below is relative to your regional base URL. See [Getting started](index.md#getting-started) for the host that matches your region.
+
+!!! danger "Every endpoint on this page requires your API key"
+    There are no anonymous endpoints. Send your key in the `X-API-Key` header on every request, including the `GET` ones:
+
+    ```text
+    X-API-Key: <your-api-key>
+    ```
+
+    A missing, malformed or unrecognised key returns `401`, and a key only ever sees the scenarios and executions belonging to its own team. To request a key, contact your elevaite365 representative.
 
 ## Scenarios
 
@@ -26,6 +35,7 @@ Every path below is relative to your regional base URL, and every request needs 
 
 ```text
 GET /scenarios/
+X-API-Key: <your-api-key>
 ```
 
 Returns every scenario available to your organisation, sorted by name. Start here when you need a `scenario_id` and do not have one.
@@ -54,6 +64,7 @@ Returns every scenario available to your organisation, sorted by name. Start her
 
 ```text
 GET /scenarios/{scenario_id}/
+X-API-Key: <your-api-key>
 ```
 
 Returns a scenario's metadata and its ordered list of steps. No execution is involved, so you can call this before running anything.
@@ -109,6 +120,8 @@ The `tests` array holds the scenario in run order, and each entry is one of two 
 
 ```text
 POST /run-scenario/
+X-API-Key: <your-api-key>
+Content-Type: application/json
 ```
 
 Schedules a scenario to run in the next minute. The response confirms scheduling and returns the execution ID you will use for all subsequent calls.
@@ -146,6 +159,7 @@ Schedules a scenario to run in the next minute. The response confirms scheduling
 
 ```text
 GET /results-scenario/executions/
+X-API-Key: <your-api-key>
 ```
 
 Returns executions for your organisation, newest run first, with the progress and timing of the latest run of each. Use it to find an `execution_id` you did not keep, or to build a dashboard of recent activity.
@@ -207,6 +221,7 @@ Returns executions for your organisation, newest run first, with the progress an
 
 ```text
 GET /results-scenario/{execution_id}/status/
+X-API-Key: <your-api-key>
 ```
 
 Returns the current status of an execution. Poll this endpoint until the status reaches `completed`, then retrieve your results.
@@ -241,6 +256,7 @@ For a recurring execution this describes the latest run, so the status can move 
 
 ```text
 GET /results-scenario/{execution_id}/junit/
+X-API-Key: <your-api-key>
 ```
 
 Returns JUnit XML result URLs for every test in the execution. This is the lightweight, machine-readable option, ideal for CI/CD pipelines, automated validation gates, and integration with test reporting tools.
@@ -281,6 +297,8 @@ Returns JUnit XML result URLs for every test in the execution. This is the light
 
 ```text
 POST /results-scenario/artifacts/
+X-API-Key: <your-api-key>
+Content-Type: application/json
 ```
 
 Returns the complete set of artifacts for every test in the execution, the richest view of your results. This is the recommended endpoint for most integrations, supporting both technical and business stakeholders.
