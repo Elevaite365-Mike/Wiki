@@ -1,0 +1,220 @@
+/* "Try it" console on the External API endpoint reference.
+   Uses the brand tokens from brand.css. */
+
+.md-typeset .tryit-auth {
+  background: var(--e365-card);
+  border: 1px solid var(--e365-line);
+  border-radius: 8px;
+  box-shadow: var(--e365-shadow);
+  padding: 0.9rem 1rem 0.75rem;
+  margin: 1.2em 0 1.6em;
+}
+
+.md-typeset .tryit-auth__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.md-typeset .tryit-auth__title {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--e365-heading);
+}
+
+.md-typeset .tryit-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.md-typeset .tryit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 11rem;
+}
+
+.md-typeset .tryit-field--grow {
+  flex: 1 1 14rem;
+}
+
+.md-typeset .tryit-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--e365-muted);
+}
+
+.md-typeset .tryit-input {
+  font-family: var(--md-text-font);
+  font-size: 0.72rem;
+  color: var(--e365-ink);
+  background: #fff;
+  border: 1px solid var(--e365-line);
+  border-radius: 6px;
+  padding: 0.42rem 0.55rem;
+  width: 100%;
+  line-height: 1.4;
+}
+
+.md-typeset .tryit-input:focus {
+  outline: none;
+  border-color: var(--e365-orange);
+  box-shadow: 0 0 0 3px rgba(255, 97, 60, 0.15);
+}
+
+.md-typeset .tryit-btn {
+  font-family: var(--md-text-font);
+  font-size: 0.68rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  border: 1px solid var(--e365-line);
+  background: #fff;
+  color: var(--e365-ink);
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.md-typeset .tryit-btn:hover {
+  border-color: var(--e365-orange);
+  color: var(--e365-orange-deep);
+}
+
+.md-typeset .tryit-btn--primary {
+  background: var(--e365-orange);
+  border-color: var(--e365-orange);
+  color: #fff;
+}
+
+.md-typeset .tryit-btn--primary:hover {
+  background: var(--e365-orange-deep);
+  border-color: var(--e365-orange-deep);
+  color: #fff;
+}
+
+.md-typeset .tryit-btn[disabled] {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.md-typeset .tryit-note {
+  font-size: 0.64rem;
+  color: var(--e365-muted);
+  margin: 0.65rem 0 0;
+  line-height: 1.5;
+}
+
+/* ---------- endpoint panel ---------- */
+
+.md-typeset details.tryit {
+  border: 1px solid var(--e365-line);
+  border-radius: 8px;
+  background: var(--e365-card);
+  box-shadow: var(--e365-shadow);
+  margin: 1.1em 0 1.6em;
+  padding: 0;
+  font-size: inherit;
+}
+
+.md-typeset details.tryit > summary.tryit__summary {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.9rem;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.md-typeset details.tryit > summary.tryit__summary::before,
+.md-typeset details.tryit > summary.tryit__summary::after {
+  content: none;
+}
+
+.md-typeset details.tryit > summary.tryit__summary::-webkit-details-marker {
+  display: none;
+}
+
+.md-typeset .tryit__method {
+  font-family: var(--md-code-font, monospace);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  color: #fff;
+  background: var(--e365-muted);
+}
+
+.md-typeset .tryit__method--get { background: #3b7d5c; }
+.md-typeset .tryit__method--post { background: var(--e365-orange-deep); }
+
+.md-typeset .tryit__label {
+  font-size: 0.72rem;
+  color: var(--e365-heading);
+}
+
+.md-typeset .tryit__body {
+  padding: 0 0.9rem 0.9rem;
+  border-top: 1px solid var(--e365-line);
+  padding-top: 0.85rem;
+}
+
+.md-typeset .tryit-warn {
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: var(--e365-ink);
+  background: rgba(255, 97, 60, 0.08);
+  border-left: 3px solid var(--e365-orange);
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+  margin: 0 0 0.8rem;
+}
+
+.md-typeset .tryit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.md-typeset .tryit-result {
+  margin-top: 0.85rem;
+}
+
+.md-typeset .tryit-status {
+  font-size: 0.66rem;
+  font-weight: 600;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 0.45rem;
+}
+
+.md-typeset .tryit-status--info { background: var(--e365-paper-2); color: var(--e365-ink); }
+.md-typeset .tryit-status--ok { background: rgba(59, 125, 92, 0.14); color: #2b5c43; }
+.md-typeset .tryit-status--error { background: rgba(216, 67, 28, 0.12); color: var(--e365-orange-deep); }
+
+.md-typeset pre.tryit-out {
+  margin: 0;
+  max-height: 22rem;
+  overflow: auto;
+}
+
+.md-typeset pre.tryit-out > code {
+  white-space: pre;
+  font-size: 0.66rem;
+  line-height: 1.55;
+  background: var(--e365-paper-2);
+  display: block;
+  padding: 0.7rem 0.8rem;
+  border-radius: 6px;
+}
