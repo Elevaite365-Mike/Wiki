@@ -1,6 +1,23 @@
 # Endpoint reference
 
-Every path below is relative to your regional base URL. See [Getting started](index.md#getting-started) for the host that matches your region.
+Every path below is relative to your regional base URL. Find the row for your instance and put the path on the end.
+
+| Region | Base URL |
+| --- | --- |
+| Australia | `https://api.elevaite365.com/v1/api/external` |
+| Europe | `https://eu-api.elevaite365.com/v1/api/external` |
+| United States | `https://us-api.elevaite365.com/v1/api/external` |
+| Singapore | `https://sg-api.elevaite365.com/v1/api/external` |
+
+So `/results-scenario/executions/` on the Australian host is:
+
+```text
+https://api.elevaite365.com/v1/api/external/results-scenario/executions/
+```
+
+The `/v1/api/external` base path is part of every URL. Leaving it out reaches the host root rather than the API.
+
+Your API host is not the host you sign in to, and a key issued in one region does not work in another. If you are not sure which region you are on, check the address you use for the product against the table in [Setup your team](../quickstart/setup-your-team.md).
 
 !!! danger "Every endpoint on this page requires your API key"
     There are no anonymous endpoints. Send your key in the `X-API-Key` header on every request, including the `GET` ones:
