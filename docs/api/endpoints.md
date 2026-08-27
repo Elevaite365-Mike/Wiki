@@ -33,11 +33,7 @@ These three exist for the [Azure DevOps Test Plans extension](../integrations/az
 
 Each endpoint below has a **Try it** panel that builds the request against your own instance, sends it, and shows the response.
 
-Pick your region and paste your API key here once, and every panel on the page uses it.
-
-<div data-tryit-auth markdown="0">
-<p>The Try it console needs JavaScript. Use the curl examples instead.</p>
-</div>
+Open any panel and it asks for your region and API key first, then whatever that endpoint needs. Type the key once and the other panels on the page pick it up, so you only enter it at the endpoint you happened to open. **Clear** removes it from all of them.
 
 !!! warning "These are real calls against your instance"
     Nothing here is a sandbox. Running a scenario schedules an actual test run, assigning a Test Case id renames a test, and everything you send is recorded against your account.

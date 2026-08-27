@@ -3,9 +3,11 @@
  * Security rules this file follows, deliberately:
  *
  *  - The API key is typed by the reader and read straight from the password
- *    input at call time. It is never copied into a variable that outlives the
- *    request, never written to localStorage, sessionStorage or cookies, never
- *    put in a URL, and never sent anywhere except the allowlisted host below.
+ *    input at call time. Every panel has its own field and they mirror each
+ *    other, so the value lives in the DOM and nowhere else: never in a
+ *    variable that outlives the request, never in localStorage,
+ *    sessionStorage or cookies, never in a URL, and never sent anywhere
+ *    except the allowlisted host below.
  *  - Destination hosts are a hard-coded allowlist. Nothing in the page (or in
  *    an API response) can redirect a request somewhere else.
  *  - Request paths come from fixed templates in the markup. Path parameters
@@ -52,15 +54,24 @@
 
   /* ---------- shared credentials panel ---------- */
 
-  function buildAuthPanel(host) {
-    host.textContent = "";
-    host.classList.add("tryit-auth");
+  /* ---------- credentials, inline in every panel ---------- */
 
-    var head = el("div", "tryit-auth__head");
-    head.appendChild(el("span", "tryit-auth__title", "Your instance"));
-    host.appendChild(head);
+  // Each panel carries its own region and key field, so the reader never has
+  // to scroll away from the endpoint they are looking at. Typing in one fills
+  // the others for this visit. The value only ever lives in the inputs: there
+  // is no module-level copy, so leaving the page takes it with you.
+  function syncCredentials(source, selector) {
+    var all = document.querySelectorAll(selector);
+    for (var i = 0; i < all.length; i++) {
+      if (all[i] !== source) all[i].value = source.value;
+    }
+  }
 
-    var row = el("div", "tryit-row");
+  var credsSeq = 0;
+
+  function buildCredentials() {
+    var keyId = "tryit-key-" + (++credsSeq);
+    var row = el("div", "tryit-row tryit-row--creds");
 
     var regionWrap = el("label", "tryit-field");
     regionWrap.appendChild(el("span", "tryit-label", "Region"));
@@ -71,12 +82,21 @@
       opt.value = r.id;
       region.appendChild(opt);
     });
+    region.addEventListener("change", function () {
+      syncCredentials(region, "[data-tryit-region]");
+    });
     regionWrap.appendChild(region);
     row.appendChild(regionWrap);
 
-    var keyWrap = el("label", "tryit-field tryit-field--grow");
-    keyWrap.appendChild(el("span", "tryit-label", "API key"));
+    var keyWrap = el("div", "tryit-field tryit-field--grow");
+    var keyHead = el("div", "tryit-label tryit-label--split");
+    var keyLabel = el("label", null, "API key");
+    keyLabel.appendChild(el("span", "tryit-hint", "not stored"));
+    keyLabel.setAttribute("for", keyId);
+    keyHead.appendChild(keyLabel);
+    keyWrap.appendChild(keyHead);
     var key = el("input", "tryit-input");
+    key.id = keyId;
     key.type = "password";
     key.placeholder = "X-API-Key";
     key.autocomplete = "off";
@@ -86,28 +106,27 @@
     key.setAttribute("data-tryit-key", "");
     key.setAttribute("data-1p-ignore", "");
     key.setAttribute("data-lpignore", "true");
-    keyWrap.appendChild(key);
-    row.appendChild(keyWrap);
-
-    var clear = el("button", "tryit-btn tryit-btn--ghost", "Clear key");
-    clear.type = "button";
-    clear.addEventListener("click", function () {
-      key.value = "";
-      key.focus();
+    key.addEventListener("input", function () {
+      syncCredentials(key, "[data-tryit-key]");
     });
-    row.appendChild(clear);
-
-    host.appendChild(row);
-    host.appendChild(el("p", "tryit-note",
-      "The key stays in this browser tab and is sent only to the region you pick above. " +
-      "It is not stored, and clearing it or leaving the page removes it."));
-
     // Nothing should ever submit this input as part of a form.
     key.addEventListener("keydown", function (ev) {
       if (ev.key === "Enter") ev.preventDefault();
     });
+    keyWrap.appendChild(key);
+    row.appendChild(keyWrap);
 
-    return host;
+    var clear = el("button", "tryit-btn--link", "Clear");
+    clear.type = "button";
+    clear.title = "Clear the key from every panel on this page";
+    clear.addEventListener("click", function () {
+      key.value = "";
+      syncCredentials(key, "[data-tryit-key]");
+      key.focus();
+    });
+    keyHead.appendChild(clear);
+
+    return { row: row, region: region, key: key };
   }
 
   /* ---------- per-endpoint panel ---------- */
@@ -206,6 +225,9 @@
 
     var bodyWrap = el("div", "tryit__body");
 
+    var creds = buildCredentials();
+    bodyWrap.appendChild(creds.row);
+
     if (warning) {
       bodyWrap.appendChild(el("p", "tryit-warn", warning));
     }
@@ -253,12 +275,9 @@
     }
 
     function context() {
-      var regionInput = document.querySelector("[data-tryit-region]");
-      var keyInput = document.querySelector("[data-tryit-key]");
-      if (!regionInput || !keyInput) return null;
-      var origin = originFor(regionInput.value);
+      var origin = originFor(creds.region.value);
       if (!origin) return null;
-      return { origin: origin, key: keyInput.value.trim() };
+      return { origin: origin, key: creds.key.value.trim() };
     }
 
     showCurl.addEventListener("click", function () {
@@ -273,7 +292,7 @@
       var ctx = context();
       if (!ctx) return;
       if (!ctx.key) {
-        render(out, "Enter your API key at the top of the page first.", "", "error");
+        render(out, "Enter your API key above to send this request.", "", "error");
         return;
       }
       var values = collect();
@@ -329,8 +348,6 @@
   }
 
   function init() {
-    var auth = document.querySelector("[data-tryit-auth]");
-    if (auth) buildAuthPanel(auth);
     var panels = document.querySelectorAll("[data-tryit]");
     for (var i = 0; i < panels.length; i++) buildPanel(panels[i]);
   }

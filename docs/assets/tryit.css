@@ -1,28 +1,6 @@
 /* "Try it" console on the External API endpoint reference.
    Uses the brand tokens from brand.css. */
 
-.md-typeset .tryit-auth {
-  background: var(--e365-card);
-  border: 1px solid var(--e365-line);
-  border-radius: 8px;
-  box-shadow: var(--e365-shadow);
-  padding: 0.9rem 1rem 0.75rem;
-  margin: 1.2em 0 1.6em;
-}
-
-.md-typeset .tryit-auth__head {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.6rem;
-}
-
-.md-typeset .tryit-auth__title {
-  font-weight: 600;
-  font-size: 0.75rem;
-  color: var(--e365-heading);
-}
-
 .md-typeset .tryit-row {
   display: flex;
   flex-wrap: wrap;
@@ -102,11 +80,52 @@
   cursor: default;
 }
 
-.md-typeset .tryit-note {
-  font-size: 0.64rem;
+/* Credentials sit at the top of each panel, set off from the parameters
+   below so it reads as "who you are" then "what you are asking for". */
+.md-typeset .tryit-row--creds {
+  background: var(--e365-paper-2);
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+  margin-bottom: 0.85rem;
+}
+
+.md-typeset .tryit-hint {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
   color: var(--e365-muted);
-  margin: 0.65rem 0 0;
-  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.md-typeset .tryit-hint::before {
+  content: " · ";
+}
+
+/* Clear sits on the key's label line, so the credentials row stays two
+   fields wide at every width. */
+.md-typeset .tryit-label--split {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.md-typeset .tryit-btn--link {
+  font-family: var(--md-text-font);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--e365-muted);
+  cursor: pointer;
+}
+
+.md-typeset .tryit-btn--link:hover {
+  color: var(--e365-orange-deep);
+  text-decoration: underline;
 }
 
 /* ---------- endpoint panel ---------- */
