@@ -32,7 +32,7 @@ The recorder adds a **Navigate** step whenever it thinks a URL may have been cha
 
 ## Always end in a verification
 
-A test that only navigates proves nothing. Close every test with a [Verify](../commands/verification.md#verify) or [Verify Field](../commands/verification.md#verify-field) step that would genuinely fail if the process broke.
+A test that only navigates proves nothing. Close every test with a [Verify Field](../commands/verification.md#verify-field) or [Verify using AI](../commands/ai.md#verify-using-ai) step that would genuinely fail if the process broke.
 
 ## Cap your loops
 

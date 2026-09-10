@@ -4,7 +4,7 @@
 : A system you test, most web applications, or one of the supported Windows desktop applications. Added to your instance by elevaite365, then selected from the applications dropdown on the Library page. See [Adding applications](../quickstart/adding-applications.md).
 
 **Command**
-: The action a step performs, Click, Fill, Verify, Loop and so on. See the [command reference](../commands/index.md).
+: The action a step performs, Click, Fill, Verify Field, Loop and so on. See the [command reference](../commands/index.md).
 
 **Component**
 : A reusable group of steps that can be dropped into any test. Tests always run the latest version of a component. See [Create components](../quickstart/create-components.md).

@@ -1,48 +1,5 @@
 # Verification
 
-## Verify
-
-**Purpose**: verify something on the page.
-
-### Verify types
-
-| # | Type | Checks |
-| --- | --- | --- |
-| 1 | **Present** | A field is present on the page |
-| 2 | **Not Present** | A field is not present on the page |
-| 3 | **(Un)Checked** | A checkbox is in a specific state |
-| 4 | **Disabled** | A field is disabled |
-| 5 | **Enabled** | A field is enabled |
-| 6 | **Editable** | A field is editable |
-| 7 | **Contains** | A text field contains text (does not work for inputs) |
-| 8 | **Value** | An input field contains a value (does not work for non-input fields) |
-| 9 | **Option** | A field has a specific option, using [standard HTML select values](https://www.w3schools.com/tags/tag_option.asp) |
-| 10 | **Empty** | An input field is empty |
-| 11 | **Focused** | A field is in focus |
-| 12 | **Viewport** | A field is inside the [viewport](https://www.w3schools.com/css/css_rwd_viewport.asp) |
-| 13 | **Accessible Description** | A field has a specific [accessible description](https://developer.mozilla.org/en-US/docs/Glossary/Accessible_description) |
-| 14 | **Accessible Name** | A field has a specific [accessible name](https://developer.mozilla.org/en-US/docs/Glossary/Accessible_name) |
-| 15 | **DOM Attribute** | A field has a specific DOM attribute |
-| 16 | **Class** | A field has a specific class |
-| 17 | **Children Count** | A field has a specific count of child elements |
-| 18 | **CSS Property** | A field has a specific CSS property, for example `display,none` |
-| 19 | **ID** | A field has a specific ID |
-| 20 | **Javascript Property** | A field has a specific JS property |
-| 21 | **ARIA Role** | A field has a specific [ARIA role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles) |
-| 22 | **Text** | A non-input field has the exact text |
-| 23 | **Title** | The page has a specific title |
-| 24 | **URL** | The page has a specific URL |
-
-### Advanced
-
-| Option | Effect |
-| --- | --- |
-| **Expect failure** | Negates the result of the verification |
-| **Error Message** | A custom error message shown when the verification fails |
-| **Timeout** | The maximum time the test waits for the verification before failing |
-
----
-
 ## Verify Field
 
 The **Verify Field** command checks one or more properties of a field and validates its value or state. It's typically used to confirm a field is visible, enabled, contains expected text, or matches specific conditions.
@@ -152,3 +109,9 @@ The test passes only if the value saved in that variable is exactly `1250.00`.
 
 !!! tip "Comparing two variables"
     Put a variable in the **Value** field to check one variable against another, such as a total read from the screen against a total read from a downloaded file.
+
+---
+
+## Verify using AI
+
+Checks that cannot be expressed as a field condition are better handled by [Verify using AI](ai.md#verify-using-ai). It screenshots the field or the page and judges it against a plain-English expectation, such as *"Validate that the GST is included"*. Use it for on-screen reports and invoices, icon-based fields, and anything where you would otherwise need a dozen separate Verify Field steps.

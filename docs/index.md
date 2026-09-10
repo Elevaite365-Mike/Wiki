@@ -131,7 +131,7 @@ Seven habits that keep a suite trustworthy.
 
 - [Using the test recorder](tests/test-recorder.md): capture a process in clicks
 - [Setup test users](quickstart/setup-test-users.md): logins the automation can use
-- [Verify & Verify Field](commands/verification.md): every check available
+- [Verification](commands/verification.md): every check available
 - [Loop](commands/loop.md): fields, ranges and data-driven runs
 - [Conditionals](tests/conditionals.md): branch a test instead of failing it
 - [Create scenarios](quickstart/create-scenarios.md): group and schedule tests

@@ -17,7 +17,7 @@ To take it off again, right-click the step and choose **Remove conditional**.
     A conditional cannot contain another conditional. If a branch needs a second decision, restructure the test so the two checks sit one after the other rather than inside each other.
 
 !!! info "Available on the verify commands"
-    Any command that makes a check can carry a conditional: [Verify](../commands/verification.md#verify), [Verify Field](../commands/verification.md#verify-field), [Verify Variable](../commands/verification.md#verify-variable), [Verify using AI](../commands/ai.md#verify-using-ai) and the Business Central [Verify Checkbox](../commands/d365-business-central.md#verify-checkbox).
+    Any command that makes a check can carry a conditional: [Verify Field](../commands/verification.md#verify-field), [Verify Variable](../commands/verification.md#verify-variable), [Verify using AI](../commands/ai.md#verify-using-ai) and the Business Central [Verify Checkbox](../commands/d365-business-central.md#verify-checkbox).
 
 ## What changes about the step
 

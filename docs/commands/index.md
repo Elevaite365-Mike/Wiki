@@ -52,7 +52,6 @@ The groups below match the ones in the **Add step** panel, so what you see in th
 
 | Command | Purpose |
 | --- | --- |
-| [Verify](verification.md#verify) | Check a field's state, text, value or attributes |
 | [Verify Field](verification.md#verify-field) | Check a field is available, then check its value |
 | [Verify Variable](verification.md#verify-variable) | Check the value a variable is holding |
 
@@ -161,4 +160,4 @@ Sometimes required to override an event that is blocking the click.
 The maximum time the test will wait for the field to be visible before failing the test.
 
 !!! info "Which commands have these?"
-    Click position, click count and force apply to the click-style commands: [Click](mouse-keyboard.md#click), [Right Click](mouse-keyboard.md#right-click), [Select Options](entering-data.md#select-options), [Click (Using Computer Vision)](ai.md#click-using-computer-vision) and [Column Filter](d365-finance-operations.md#column-filter). Timeout applies more broadly, including [Fill](entering-data.md#fill), [Type](entering-data.md#type) and [Verify](verification.md#verify).
+    Click position, click count and force apply to the click-style commands: [Click](mouse-keyboard.md#click), [Right Click](mouse-keyboard.md#right-click), [Select Options](entering-data.md#select-options), [Click (Using Computer Vision)](ai.md#click-using-computer-vision) and [Column Filter](d365-finance-operations.md#column-filter). Timeout applies more broadly, including [Fill](entering-data.md#fill), [Type](entering-data.md#type) and [Verify Field](verification.md#verify-field).
