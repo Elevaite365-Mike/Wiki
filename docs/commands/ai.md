@@ -12,9 +12,9 @@
 
 ### Skills
 
-By default the AI answers from the question alone. It cannot see the page. The **Skills** button on the question input changes that.
+By default the AI answers from the question alone. It cannot see the page. The **Skills** button changes that. It is the lightning-bolt icon at the right-hand end of the Question input, and it stays visible whether or not you have clicked into the field.
 
-Turn on the **screenshot** skill and the AI captures the screen at the moment the step runs, then answers using what is on it. Use it when the answer depends on something rendered in the test rather than something you can type into the prompt:
+Turn on the **screenshot** skill and it shows as a highlighted pill on the input. When the step runs, the AI captures the screen at the moment the step runs, then answers using what is on it. Use it when the answer depends on something rendered in the test rather than something you can type into the prompt:
 
 - *"Calculate the line total from the PDF preview"*
 - *"Read the invoice number from the confirmation panel"*

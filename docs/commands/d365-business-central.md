@@ -47,4 +47,4 @@ Commands available when your application is Dynamics 365 Business Central.
 - **Checkbox status**: whether you expect it to be enabled or disabled
 
 !!! info "Finance & Operations equivalent"
-    F&O uses a single [Expand or Collapse Section](d365-finance-operations.md#expand-or-collapse-section) command with an *Expanded* checkbox.
+    F&O uses a single [Expand or Collapse Section](d365-finance-operations.md#expand-or-collapse-section) command with an *Action* toggle, which also offers *Expand All* and *Collapse All*.

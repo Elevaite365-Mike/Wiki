@@ -33,15 +33,22 @@ Commands available when your application is Dynamics 365 Finance & Operations.
 
 ## Expand or Collapse Section
 
-**Purpose**: expand or collapse a section in D365 Finance & Operations. If the section is already in the requested state, the automation does nothing.
+**Purpose**: expand or collapse sections in D365 Finance & Operations. Work on one section, or on every section on the page at once.
 
 **Parameters:**
 
-- **Field label**: points to the section you want the automation to locate and expand or collapse
-- **Expanded**: a checkbox telling the automation whether you want the section expanded or collapsed
+- **Action**: what you want the automation to do. Pick one of:
+    - *Expand*: open the section you point to. If it is already open, nothing happens.
+    - *Expand All*: open every section on the page.
+    - *Collapse*: close the section you point to. If it is already closed, nothing happens.
+    - *Collapse All*: close every section on the page.
+- **Field label**: points to the section you want the automation to locate. Only needed for *Expand* and *Collapse*. The *All* actions find the sections themselves, so there is no field to set.
+
+!!! tip "Use Expand All before reading a form"
+    Fields inside a collapsed section are hidden, so a later step can fail to find them. One *Expand All* step at the start saves you adding an *Expand* step for each section.
 
 !!! info "Business Central equivalents"
-    Business Central uses separate [Expand Section](d365-business-central.md#expand-section) and [Collapse Section](d365-business-central.md#collapse-section) commands.
+    Business Central uses separate [Expand Section](d365-business-central.md#expand-section) and [Collapse Section](d365-business-central.md#collapse-section) commands, and has no *All* option.
 
 ## Toggle Checkbox
 

@@ -21,7 +21,12 @@ The step is split into two sections, **Input** and **Save Response**, chosen wit
 | **URL** | The endpoint to call. Required |
 | **Headers** | Key and value pairs. Use **Add row** for each one. Starts empty |
 | **Authentication** | How to authenticate. See below |
-| **Body type** | `Empty`, or `JSON` to reveal a **Body** field to paste the payload into |
+| **Body type** | `Empty`, `JSON` or `XML`. Picking `JSON` or `XML` reveals a **Body** field to paste the payload into |
+
+<!-- TODO: confirm whether picking XML sets a Content-Type: application/xml header automatically, or whether users must add it under Headers -->
+
+!!! tip "Changing the payload each run"
+    Keep the JSON or XML body in a variable, swap the field that changes with [Update Value](variables.md#update-value), then put the result variable in the **Body** field.
 
 Variables can be used throughout, so a URL like `https://api.example.com/orders/{{OrderId}}` picks up an ID captured earlier in the run.
 
@@ -65,13 +70,23 @@ Nothing is checked here. The step stores the values, and you assert on them afte
 
 ## Working with the response
 
-The body arrives as one lump of text. To get at a single field, follow the API Request with [Extract Value](variables.md#extract-value), pointing a JSON path at the part you want:
+The body arrives as one lump of text, JSON or XML depending on the endpoint. To get at a single field, follow the API Request with [Extract Value](variables.md#extract-value) and set its format to match:
 
-| # | Step |
-| --- | --- |
-| 1 | API Request, saving the body to a variable |
-| 2 | Extract Value, format JSON, path `$.id` |
-| 3 | [Verify Variable](verification.md#verify-variable), or use the value in a later step |
+=== "JSON"
+
+    | # | Step |
+    | --- | --- |
+    | 1 | API Request, saving the body to a variable |
+    | 2 | Extract Value, format JSON, path `$.id` |
+    | 3 | [Verify Variable](verification.md#verify-variable), or use the value in a later step |
+
+=== "XML"
+
+    | # | Step |
+    | --- | --- |
+    | 1 | API Request, saving the body to a variable |
+    | 2 | Extract Value, format XML, XPath `/order/id` |
+    | 3 | [Verify Variable](verification.md#verify-variable), or use the value in a later step |
 
 !!! tip "Checking the call succeeded"
     Save the status code, then assert on it with [Verify Variable](verification.md#verify-variable). A test that posts data and never checks the response will pass while the data quietly fails to arrive.

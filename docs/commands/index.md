@@ -118,7 +118,7 @@ Available only when the test's application is that product.
 | --- | --- | --- |
 | [Change Company](d365-finance-operations.md#change-company) | Finance & Operations | Switch to another legal entity by company code |
 | [Column Filter](d365-finance-operations.md#column-filter) | Finance & Operations | Filter a grid column |
-| [Expand or Collapse Section](d365-finance-operations.md#expand-or-collapse-section) | Finance & Operations | Open or close a section |
+| [Expand or Collapse Section](d365-finance-operations.md#expand-or-collapse-section) | Finance & Operations | Open or close one section, or every section on the page |
 | [Toggle Checkbox](d365-finance-operations.md#toggle-checkbox) | Finance & Operations | Set a checkbox or radio to the state you want |
 | [Toggle Checkbox](d365-business-central.md#toggle-checkbox) | Business Central | Set a checkbox or radio to the state you want |
 | [Expand Section](d365-business-central.md#expand-section) | Business Central | Open a collapsed section |
