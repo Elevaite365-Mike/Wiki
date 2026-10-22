@@ -124,9 +124,8 @@ nav:
       - D365 Business Central: commands/d365-business-central.md
       - D365 Project Operations: commands/d365-project-operations.md
   - Integrations:
-      # External API hidden pending approval. Restore with:
-      # - External API: api/index.md
-      # - Endpoint reference: api/endpoints.md
-      # - Integration flow: api/integration.md
+      - External API: api/index.md
+      - Endpoint reference: api/endpoints.md
+      - Integration flow: api/integration.md
       - Azure DevOps pipelines: integrations/azure-devops.md
       - Azure DevOps Test Plans: integrations/azure-devops-test-plans.md
