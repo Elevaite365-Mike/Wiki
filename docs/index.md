@@ -10,6 +10,7 @@ New here? The quickstart takes you from an empty instance to a scheduled test.
 
 [Start the quickstart](quickstart/index.md){ .md-button .md-button--primary }
 [Command reference](commands/index.md){ .md-button }
+[Endpoint reference](api/endpoints.md){ .md-button }
 <!-- Agreements button hidden pending approval. Restore with:
 <a href="agreements/" class="md-button">Agreements</a> -->
 
@@ -45,11 +46,9 @@ New here? The quickstart takes you from an empty instance to a scheduled test.
 
     ---
 
-    Trigger scenarios from Azure DevOps, and collect the results.
+    Trigger scenarios from your own tools or Azure DevOps, and collect the results.
 
-    [:octicons-arrow-right-24: Azure DevOps](integrations/azure-devops.md)
-    <!-- External API link hidden pending approval. Restore with:
-    [:octicons-arrow-right-24: External API](api/index.md) · [Azure DevOps](integrations/azure-devops.md) -->
+    [:octicons-arrow-right-24: External API](api/index.md) · [Endpoint reference](api/endpoints.md) · [Azure DevOps](integrations/azure-devops.md)
 
 -   :material-lifebuoy:{ .lg .middle } **Help**
 
@@ -136,8 +135,8 @@ Seven habits that keep a suite trustworthy.
 - [Conditionals](tests/conditionals.md): branch a test instead of failing it
 - [Create scenarios](quickstart/create-scenarios.md): group and schedule tests
 - [Video library](help/videos.md): every demo, mapped to its article
-<!-- External API link hidden pending approval. Restore with:
-- [External API](api/index.md): trigger runs from CI/CD -->
+- [External API](api/index.md): trigger runs from CI/CD
+- [Endpoint reference](api/endpoints.md): every API path, by region
 - [Azure DevOps pipelines](integrations/azure-devops.md): run scenarios from a pipeline
 - [Azure DevOps Test Plans](integrations/azure-devops-test-plans.md): push results into Test Plans
 - [Glossary](help/glossary.md): plain-English definitions
