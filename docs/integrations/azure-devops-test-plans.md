@@ -70,6 +70,8 @@ You can also copy the whole URL and paste it into elevaite365 in the next step.
 
 4. Click **Save DevOps Binding**.
 
+<!-- TODO: confirm the Save button label on the new Azure DevOps tab. -->
+
 Once saved, the PAT field shows `Configured · ending ••••XXXX`, the last four characters of the token. The full token is never stored in plain text.
 
 ## Step 4. Name your tests correctly
