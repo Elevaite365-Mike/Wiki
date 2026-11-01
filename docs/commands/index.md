@@ -132,7 +132,7 @@ Available only when the test's application is that product.
 | --- | --- |
 | [Loop](loop.md) | Repeat steps over fields, a range, or spreadsheet rows |
 | [API Request](api-request.md) | Call an endpoint and save the response |
-| [Accept Dialog](dialogs.md#accept-dialog) | Answer OK to native browser alerts from here on |
+| [Accept Dialog](dialogs.md#accept-dialog) | Answer OK to a native browser alert, optionally typing into a prompt |
 | [Dismiss Dialog](dialogs.md#dismiss-dialog) | Answer Cancel to native browser alerts from here on |
 | [Comment](reporting.md#comment) | Add a note to the test and its reports |
 | [Take a Screenshot](reporting.md#take-a-screenshot) | Capture a full-screen image into the results |
