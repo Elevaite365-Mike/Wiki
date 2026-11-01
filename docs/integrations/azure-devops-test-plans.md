@@ -52,7 +52,7 @@ You can also copy the whole URL and paste it into elevaite365 in the next step.
 ## Step 3. Configure the DevOps Binding
 
 1. Go to **Scenarios**, select the scenario you want to integrate, and click **Edit**.
-2. Scroll to **DevOps Binding** and expand it.
+2. Open the **Azure DevOps** tab.
 3. Fill in the fields.
 
 !!! tip "Quick option"
@@ -65,9 +65,12 @@ You can also copy the whole URL and paste it into elevaite365 in the next step.
 | **Suite ID** | Child Static Suite ID, from the URL | `5` |
 | **Enabled** | Turns the integration on and off | On |
 | **Push mode** | See [Push modes](#push-modes) | `async` |
+| **Overwrite test steps** | Async mode only. Replaces the linked Test Case's steps with the scenario's steps on every run, see [Overwrite test steps](#overwrite-test-steps) | Off |
 | **PAT** | The token from Step 1 | (paste token) |
 
 4. Click **Save DevOps Binding**.
+
+<!-- TODO: confirm the Save button label on the new Azure DevOps tab. -->
 
 Once saved, the PAT field shows `Configured · ending ••••XXXX`, the last four characters of the token. The full token is never stored in plain text.
 
@@ -150,6 +153,19 @@ Add `mode: 'async'` to the task inputs in your pipeline YAML:
 !!! warning "One scenario per pipeline"
     Async mode is best suited to a single scenario per pipeline. Multiple scenario tasks will not run sequentially. Each fires immediately without waiting for the previous scenario to finish.
 
+## Overwrite test steps
+
+With this option off, elevaite365 records results against the linked Test Case without touching its steps, so whoever edits the Test Case in Azure DevOps owns them.
+
+Tick **Overwrite test steps** on the scenario's **Azure DevOps** tab to hand ownership to elevaite365 instead. Each time the scenario completes in async mode, elevaite365 replaces the steps of the linked Test Case with the steps from the elevaite365 test. Execution results are still recorded as usual, so the Test Run shows pass and fail for the new steps.
+
+This keeps Azure DevOps in line with the scenario as it changes. Add, remove or reword a step in elevaite365 and the Test Case matches it after the next run.
+
+!!! warning "Edits made in Azure DevOps are lost"
+    The replacement covers every step, including ones edited by hand in Azure DevOps. If someone on your team maintains steps directly in Test Plans, leave this option off.
+
+<!-- TODO: confirm whether Overwrite test steps has any effect in sync mode. The feature was described for async runs only. -->
+
 ## How it works, async mode
 
 ```text
@@ -167,6 +183,8 @@ Run scenario from elevaite365
   │  New Test Run created        │
   │  Test Cases linked or        │
   │  auto-created (TCNEW)        │
+  │  Steps replaced (if Overwrite│
+  │  test steps is on)           │
   │  Pass / fail per test step   │
   │  Video attached (if any)     │
   └──────────────────────────────┘
